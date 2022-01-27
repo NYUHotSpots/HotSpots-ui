@@ -1,16 +1,17 @@
 # SWE React Demo Project
 
+## Setup
 ### Clone the repository
-### `git clone https://github.com/nysteo/swe-react-demo/`
+`git clone https://github.com/NYUHotSpots/HotSpots-ui.git`
 
 ### CD into the repo
-### `cd swe-react-demo`
+`cd swe-react-demo`
 
 ### Install Dependencies
-### `npm install` (make sure you have npm & node installed)
+`npm install` (make sure you have npm & node installed)
 
 ### Run the app!
-### `npm run start`
+`npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
