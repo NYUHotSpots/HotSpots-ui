@@ -1,4 +1,4 @@
-# SWE React Demo Project
+# HotSpots UI
 
 ## Setup
 ### Clone the repository
