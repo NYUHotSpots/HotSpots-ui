@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Home from './pages/Home/Home';
 import Rooms from './pages/Rooms/Rooms';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="root">
       <div className="content">
-        <Router>
+        <Router basename="/HotSpots-ui">
           <Switch>
             <Route exact={true} path={'/'}>
               <Home />
