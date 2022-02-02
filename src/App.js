@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="root">
       <div className="content">
-        <Router basename="/HotSpots-ui">
+        <Router>
           <Switch>
             <Route exact={true} path={'/'}>
               <Home />
