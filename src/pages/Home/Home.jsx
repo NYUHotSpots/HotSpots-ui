@@ -13,8 +13,6 @@ export default function Home(){
       <h1>Hotspots</h1>
       <div>
         <p className="quote">"Crowdsourcing study spaces for students by students"</p>
-        <hr></hr>
-        <hr></hr>
         <p className="dev-names">Tiffany Chan, Kevin Chen, Kevin Iza, Kathy Pan</p>
       </div>
 
@@ -48,6 +46,18 @@ export default function Home(){
         className="page-button"
       >
         User SignUp
+      </button> 
+
+      { /*
+        - button to Add Review
+        - can be changed to show in the Locations page instead
+        - currently redirects to /rooms
+      */}
+      <button
+        onClick={() => navigateToPage('/rooms')}
+        className="page-button"
+      >
+        Add a Review
       </button> 
     </div>
   );
