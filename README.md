@@ -5,7 +5,7 @@
 `git clone https://github.com/NYUHotSpots/HotSpots-ui.git`
 
 ### CD into the repo
-`cd swe-react-demo`
+`cd Hotspots-ui`
 
 ### Install Dependencies
 `npm install` (make sure you have npm & node installed)
