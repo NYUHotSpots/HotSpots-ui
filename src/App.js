@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="root">
       <div className="content">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact={true} path={'/'}>
               <Home />
