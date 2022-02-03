@@ -30,7 +30,7 @@ export default function Home(){
         // button for User login?
       }
       <button
-        onClick={() => navigateToPage('/users')}
+        onClick={() => navigateToPage('/login')}
         className="page-button"
       >
         User Login
