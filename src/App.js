@@ -7,6 +7,7 @@ import Users from './pages/Users/Users';
 
 import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
+import CreateReview from './pages/CreateReview/CreateReview';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route exact={true} path={'/CheckReviews'}>
               <CheckReviews />
+            </Route>
+            <Route exact={true} path={'/createreview'}>
+              <CreateReview />
             </Route>
           </Switch>
         </Router>
