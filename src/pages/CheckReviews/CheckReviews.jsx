@@ -1,5 +1,5 @@
 //import React, {useEffect, useState} from 'react';
-import React, {useState} from 'react';  // for debugging, return to OG later
+//import React, {useState} from 'react';  // for debugging, return to OG later
 //import axios from 'axios';    // for debugging, uncomment later
 //import {useHistory} from 'react-router-dom';    // for debugging, uncomment later
 
@@ -11,16 +11,5 @@ export default function CheckReviews() {
   //const [isModalOpen, setIsModalOpen] = useState(false);
   //const history = useHistory();
 
-  { /*
-    return(
-        <div>
-            <div>
-                <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
-            </div>
-        </div>
-
-
-    )
-    */}
-
-  }
+}
+  
