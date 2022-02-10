@@ -8,9 +8,10 @@ import './checkreviews.css';
 
 export default function CheckReviews() {
   //const [refresh, setRefresh] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const [isModalOpen, setIsModalOpen] = useState(false);
   //const history = useHistory();
 
+  { /*
     return(
         <div>
             <div>
@@ -20,5 +21,6 @@ export default function CheckReviews() {
 
 
     )
+    */}
 
   }
