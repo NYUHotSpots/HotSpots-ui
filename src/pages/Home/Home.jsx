@@ -59,6 +59,17 @@ export default function Home(){
       >
         Add a Review
       </button> 
+
+      { /*
+        - button to Look at all the Reviews (Can be Change to just a room)
+        - currently redirects to /rooms
+      */}
+      <button
+        onClick={() => navigateToPage('/rooms')}
+        className="page-button"
+      >
+        Check Reviews
+      </button> 
     </div>
   );
 };
