@@ -6,6 +6,7 @@ import Rooms from './pages/Rooms/Rooms';
 import Users from './pages/Users/Users';
 
 import './App.css';
+import CheckReviews from './pages/CheckReviews/CheckReviews';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact={true} path={'/users'}>
               <Users />
+            </Route>
+            <Route exact={true} path={'/CheckReviews'}>
+              <CheckReviews />
             </Route>
           </Switch>
         </Router>

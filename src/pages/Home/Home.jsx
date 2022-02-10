@@ -65,7 +65,7 @@ export default function Home(){
         - currently redirects to /rooms
       */}
       <button
-        onClick={() => navigateToPage('/rooms')}
+        onClick={() => navigateToPage('/checkreviews')}
         className="page-button"
       >
         Check Reviews
