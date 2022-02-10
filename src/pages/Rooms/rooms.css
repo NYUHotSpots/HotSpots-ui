@@ -14,9 +14,12 @@
 
 .rooms-list {
   width: 100%;
+  height: 550px;  /*Is the height of the room list that keeps it from going off the page*/
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-size: 1em;
+  overflow: auto;
 }
 
 .create-modal {
