@@ -1,25 +1,25 @@
-.rooms-error-box {
+.checkreviews-error-box {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     background-color: #EF4444;
   }
   
-  .rooms-header {
+  .checkreviews-header {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   
-  .rooms-list {
+  .checkreviews-list {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
   
-  .create-modal {
+  .checkreviews-modal {
     position: absolute;
     top: 40%;
     z-index: 1000;
