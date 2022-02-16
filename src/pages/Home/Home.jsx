@@ -2,11 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import Profile from "../Authentication/Profile";
-
 export default function Home() {
   const history = useHistory();
-  const { loginWithRedirect, logout } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   function navigateToPage(path) {
     history.push(path);
@@ -14,11 +12,14 @@ export default function Home() {
 
   return (
     <div className="content">
-      <button onClick={() => loginWithRedirect()}>Log In</button>
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
-        Log Out
-      </button>
-      <Profile />
+      {isAuthenticated ? (
+        <button onClick={() => logout({ returnTo: window.location.origin })}>
+          Log Out
+        </button>
+      ) : (
+        <button onClick={() => loginWithRedirect()}>Log In</button>
+      )}
+
       <h1>Hotspots</h1>
       <div>
         <p className="quote">
