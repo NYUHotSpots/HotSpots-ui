@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
-import RoomItem from '../../components/RoomItem/RoomItem';
+import SpotItem from '../../components/SpotItem/SpotItem';
 
-import './rooms.css';
+import './rooms.css';       
 
 export default function Rooms() {
-  const [rooms, setRooms] = useState(undefined);
+  const [spots, setSpots] = useState(undefined);
   const [error, setError] = useState(undefined);
 
   const [refresh, setRefresh] = useState(undefined);
@@ -18,15 +18,19 @@ export default function Rooms() {
   const history = useHistory();
 
   useEffect(() => {
-    axios.get('https://hotspotsapi.herokuapp.com/spot') // Gets the spots from our api
+    axios.get('https://hotspotsapi.herokuapp.com/spot/list') // Gets the spots from our api
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
+        console.log('getting values'); // Remove later, testing
         if (response.data){
-          setRooms(response.data);
+          console.log('api sent data');// Remove later, testing
+          setSpots(response.data);
         }
+        console.log('At the end');// Remove later, testing
       })
       .catch(error => {       //If an error is thrown this catch puts up a warning instead
         console.log(error);
+        console.log('You didnt get the value RIPS'); // Remove later, testing
         setError(error);
       });
   }, [refresh])
@@ -46,7 +50,7 @@ export default function Rooms() {
   return (
     <div className="content">
       {isModalOpen &&
-        <div className="create-modal"> {/*Is used to create and input a new room*/}
+        <div className="create-modal"> {/*Is the popup to add a new room (GOT TO Change text)*/}
 
           <input
             className="room-input"
@@ -63,7 +67,7 @@ export default function Rooms() {
         </div>
       }
 
-      <div className="rooms-header">  {/*Displays Rooms and a back button (Not sure if its working)*/}
+      <div className="rooms-header">  {/*Displays the title Rooms and a back button */}
         <h1>Rooms</h1>
         <button
           onClick={() => history.push('/')}
@@ -73,18 +77,19 @@ export default function Rooms() {
         </button>
       </div>
 
-      {error && (
+      {error && (      /* Creates the Error box when there are no rooms */
         <div className="rooms-error-box">
           <p>{error.toString()}</p>
         </div>
       )}
 
-      <div className="rooms-list">  {/*Gets the rooms from the demo23 (need to change) also handles when no rooms are found*/}
-        {rooms ? rooms.map((room, index) => (
-          <RoomItem
-            key={`${room.roomName}-${index}`}
-            name={room.roomName}
-            userCount={room.num_users}
+      <div className="rooms-list">  {/*Gets the spots also handles when no rooms are found*/}
+        {spots ? spots.map((spot, index) => (
+          <SpotItem
+            key={`${spot.spotName}-${index}`}
+            name={spot.spotName}
+            image={spot.spotImage}
+            address={spot.spotAddress}
           />
         )) : (
           <div className="rooms-empty">
