@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+//import React, {useEffect, useState} from 'react';
+import React from 'react';
 //import axios from 'axios';
 //import {useHistory} from 'react-router-dom';
 
 //import SpotCard from '../../components/Card/Card';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -19,7 +19,7 @@ function createData(spotName, availability, noiseLevel, ambience, temperature) {
 // hardcodes sample data
 const rows = [
   createData('Makerspace', 'many seats', 'very loud', 'busy', 'comfortable'),
-  createData('Commuter Lounge', 'some seats', 'quiet', 'calm', 'cool'),
+  createData('Student Lounge', 'some seats', 'quiet', 'calm', 'cool'),
 ];
 
 export default function BasicTable() {
@@ -28,7 +28,7 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell>Spot / Location</TableCell>
             <TableCell align="right">Availability</TableCell>
             <TableCell align="right">Noise Level</TableCell>
             <TableCell align="right">Ambience</TableCell>

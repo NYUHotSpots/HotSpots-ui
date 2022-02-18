@@ -17,6 +17,13 @@ export default function Rooms() {
 
   const history = useHistory();
 
+  {/*
+  // NEED FOR navigateToPage for testing
+  function navigateToPage(path) {
+    history.push(path);
+  }
+  */}
+
   useEffect(() => {
     axios.get('https://hotspotsapi.herokuapp.com/spot') // Gets the spots from our api
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
@@ -101,6 +108,20 @@ export default function Rooms() {
       <div>     {/*A button to add a room*/}
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
+
+      {/*
+      { 
+        // TESTER BUTTON FOR DETAILS PAGE
+        // DO NOT REMOVE UNTIL HOME PAGE LINKED TO API
+      }
+      <button
+        onClick={() => navigateToPage('/spotdetails')}
+        className="page-button"
+      >
+        View Spot Details
+      </button>
+      */}
+
     </div> //Content div
   )
 }

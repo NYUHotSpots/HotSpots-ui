@@ -8,6 +8,7 @@ import Users from './pages/Users/Users';
 import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
 import CreateReview from './pages/CreateReview/CreateReview';
+//import SpotDetails from './pages/SpotDetails/SpotDetails';
 
 function App() {
   return (
@@ -30,6 +31,13 @@ function App() {
             <Route exact={true} path={'/createreview'}>
               <CreateReview />
             </Route>
+            
+            {/*
+            // setup for SpotDetails
+            <Route exact={true} path={'/spotdetails'}>
+              <SpotDetails />
+            </Route>
+            */}
           </Switch>
         </Router>
       </div>
