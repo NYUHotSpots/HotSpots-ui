@@ -88,7 +88,7 @@ export default function Rooms() {
           <SpotItem
             key={`${spot.spotName}-${index}`}
             name={spot.spotName}
-            image={spot.spotImage}
+            image= {spot.spotImage}
             address={spot.spotAddress}
           />
         )) : (

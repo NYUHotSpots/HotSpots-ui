@@ -1,7 +1,7 @@
 .spot-item {
     width: 100%;
     padding: 10px;
-    display: flex;
+    display: inline;
     align-items: center;
     justify-content: space-between;
     border-radius: 5px;
