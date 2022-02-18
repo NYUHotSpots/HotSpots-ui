@@ -1,7 +1,8 @@
 # HotSpots UI
 
 ## Sample View
-[https://nyuhotspots.github.io/HotSpots-ui/](https://nyuhotspots.github.io/HotSpots-ui/) 
+[https://nyuhotspots.github.io/HotSpots-ui/](https://nyuhotspots.github.io/HotSpots-ui/)
+
 (displays the same as [http://localhost:3000](http://localhost:3000) after running `npm run start`)
 
 ## Setup
@@ -26,4 +27,4 @@ The page will reload when you make changes.\
 - HTML
 - CSS
 - React
-- [material-ui/][https://mui.com/getting-started/installation/]
+- [material-ui](https://mui.com/getting-started/installation/)
