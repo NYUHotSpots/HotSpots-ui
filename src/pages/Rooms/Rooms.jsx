@@ -67,8 +67,8 @@ export default function Rooms() {
         </div>
       }
 
-      <div className="rooms-header">  {/*Displays the title Rooms and a back button */}
-        <h1>Rooms</h1>
+      <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
+        <h1>Locations</h1>
         <button
           onClick={() => history.push('/')}
           className="button"
@@ -93,14 +93,14 @@ export default function Rooms() {
           />
         )) : (
           <div className="rooms-empty">
-            <p>Sorry there are no rooms right now... Come back later </p>
+            <p>Sorry there are no Locations right now... Come back later </p>
           </div>
         )}
       </div>
 
       <div>     {/*A button to add a room*/}
-        <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
+        <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
-    </div>
+    </div> //Content div
   )
 }
