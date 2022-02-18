@@ -17,12 +17,6 @@ export default function Rooms() {
 
   const history = useHistory();
 
-  {/*
-  // NEED FOR navigateToPage for testing
-  function navigateToPage(path) {
-    history.push(path);
-  }
-  */}
 
   useEffect(() => {
     axios.get('https://hotspotsapi.herokuapp.com/spot') // Gets the spots from our api
