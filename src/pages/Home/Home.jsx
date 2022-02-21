@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
-import Card from '@mui/material/Card';
-import { CardActionArea } from '@mui/material';
 import SpotCard from '../../components/Card/Card';
 
 export default function Home(){
-  const [component, setComponent] = useState("img");
-  const [height, setHeight] = React.useState("140");
+  const [component] = useState("img");
+  const [height] = React.useState("140");
   const image = require('./images/nyu.jpg');
-  const [path, setPath] = useState('/rooms')
+  // const [path, setPath] = useState('/rooms')
   const history = useHistory();
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 

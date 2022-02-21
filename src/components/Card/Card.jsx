@@ -7,10 +7,6 @@ import { CardActionArea } from '@mui/material';
 import {useHistory} from 'react-router-dom';
 
 export default function SpotCard({component,height,image,hpath}) {
-    const history = useHistory();
-    function navigateToPage(path) {
-        history.push(path);
-    }
     return (
         <Card sx={{ maxWidth: 400}}>
         <CardActionArea>
