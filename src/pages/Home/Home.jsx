@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 import Card from '@mui/material/Card';
 import { CardActionArea } from '@mui/material';
 import SpotCard from '../../components/Card/Card';
@@ -10,6 +11,7 @@ export default function Home(){
   const image = require('./images/nyu.jpg');
   const [path, setPath] = useState('/rooms')
   const history = useHistory();
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   function navigateToPage(path) {
     history.push(path);
@@ -17,6 +19,14 @@ export default function Home(){
 
   return (
     <div className="content">
+      {isAuthenticated ? (
+        <button onClick={() => logout({ returnTo: window.location.origin })}>
+          Log Out
+        </button>
+      ) : (
+        <button onClick={() => loginWithRedirect()}>Log In</button>
+      )}
+
       <h1>Hotspots</h1>
       <div className="intro">
         <p className="quote">"Crowdsourcing study spaces for students by students"</p>
@@ -89,5 +99,4 @@ export default function Home(){
 
     </div>
   );
-};
-
+}

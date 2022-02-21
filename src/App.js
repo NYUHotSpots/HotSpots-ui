@@ -9,6 +9,11 @@ import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
 import CreateReview from './pages/CreateReview/CreateReview';
 
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Profile from './pages/Authentication/Profile';
+
+//import SpotDetails from './pages/SpotDetails/SpotDetails';
+
 function App() {
   return (
     <div className="root">
@@ -30,6 +35,13 @@ function App() {
             <Route exact={true} path={'/createreview'}>
               <CreateReview />
             </Route>
+            <ProtectedRoute path="/profile" component={Profile} />
+            {/*
+            // setup for SpotDetails
+            <Route exact={true} path={'/spotdetails'}>
+              <SpotDetails />
+            </Route>
+            */}
           </Switch>
         </Router>
       </div>
