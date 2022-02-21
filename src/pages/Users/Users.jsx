@@ -4,6 +4,10 @@ import {useHistory} from 'react-router-dom';
 
 import './users.css';
 
+// Insert test image, will be moved later
+import makerspaceIMG from '../SpotDetails/images/Makerspace.jpg';
+console.log(makerspaceIMG);
+
 export default function Users() {
   const [users, setUsers] = useState(undefined);
   const [error, setError] = useState(undefined);
@@ -42,6 +46,8 @@ export default function Users() {
 
   return (
     <div className="content">
+      <img src={makerspaceIMG} alt="MakerspaceIMG" />
+
       {isModalOpen && 
         <div className="create-modal">
           <input
