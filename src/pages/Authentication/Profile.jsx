@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const Profile = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  // const [userMetadata, setUserMetadata] = useState(null);
+  const [userMetadata, _] = useState(null);
   // const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   // const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
