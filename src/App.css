@@ -13,21 +13,21 @@
   font-style: italic;
 }
 
-.quote-author {
-  opacity: .8;
+.intro {
+  text-align: left;
 }
 
-.content {             /*Is where the size of the content is changed for pages*/
-  width: 400px;
+.content {
+  width: 800px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 2rem;
 }
 
 .page-button {
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 100px;
+  max-width: 200px;
   border: 1px solid #94A3B8;
   background-color: #E2E8F0;
   padding-right: 25px;
@@ -36,6 +36,7 @@
   padding-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .button {
@@ -51,4 +52,15 @@
 
 .page-button:hover {
   background-color: #CBD5E1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
