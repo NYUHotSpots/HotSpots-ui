@@ -18,9 +18,8 @@ export default function SpotCard({component,height,image,hpath, name, address}) 
                 />
 
                 <CardContent>
-                    {name}
                     <Typography gutterBottom variant="h5">
-                       {name}
+                       "hello ${name}!"
                     </Typography>
 
                     <Typography variant="body2" color="text.secondary">

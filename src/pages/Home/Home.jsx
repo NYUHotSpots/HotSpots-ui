@@ -1,19 +1,47 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
-import SpotCard from '../../components/Card/Card';
+import SpotCard from '../../components/Card/Card';   
+
+import axios from 'axios';
 
 export default function Home(){
-  const [component] = useState("img");
-  const [height] = React.useState("140");
-  const image = require('./images/nyu.jpg');
+  //const [component] = useState("img");
+  //const [height] = React.useState("140");
+  //const image = require('./images/nyu.jpg');
   // const [path, setPath] = useState('/rooms')
+  //const history = useHistory();
+
+  const [spots, setSpots] = useState(undefined);
+  const [,setError] = useState(undefined);
+
+  const [refresh] = useState(undefined);
+
   const history = useHistory();
+
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   function navigateToPage(path) {
     history.push(path);
   }
+
+  useEffect(() => {
+    axios.get('https://hotspotsapi.herokuapp.com/spot') // Gets the spots from our api
+      .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
+        console.log(response.data);
+        console.log('getting values'); // Remove later, testing
+        if (response.data){
+          console.log('api sent data');// Remove later, testing
+          setSpots(response.data);
+        }
+        console.log('At the end');// Remove later, testing
+      })
+      .catch(error => {       //If an error is thrown this catch puts up a warning instead
+        console.log(error);
+        console.log('You didnt get the value RIPS'); // Remove later, testing
+        setError(error);
+      });
+  }, [refresh])
 
   return (
     <div className="content">
@@ -47,17 +75,28 @@ export default function Home(){
             Add New Spot
         </button>
       </div>
-      <div className="grid-container">
+
+      
+      <div className="grid-container"> 
         <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
-          <SpotCard
-            component={component}
-            height={height}
-            image={image}
-            onClick={() => navigateToPage('/rooms')} // todo change path
-          />
+          {spots ? spots.map((spot, index) => (
+            <SpotCard
+              component={spot.component}
+              height={spot.height}
+              image={spot.image}
+              name={spot.name}
+              address={spot.address}
+              onClick={() => navigateToPage('/rooms')} // todo change path
+            />
+          )) : (
+            <div className="rooms-empty">
+              <p>Sorry there are no Locations right now... Come back later </p>
+            </div>
+          )}
         </div>
       </div>
 
     </div>
   );
 }
+
