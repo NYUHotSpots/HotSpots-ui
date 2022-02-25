@@ -69,12 +69,13 @@ export default function Rooms() {
       }
 
       <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
-        <h1>Locations</h1>
+        <h1>[Spot Location Name]</h1>
+        
         <button
           onClick={() => history.push('/')}
           className="button"
         >
-          {"<--"}Go Back Home
+          {"<-- "}Go Back Home
         </button>
       </div>
 
@@ -99,22 +100,21 @@ export default function Rooms() {
         )}
       </div>
 
+           {/*Sets up the 'table' with details*/}
+        <h3 classname = "detail-subheaders"> Availability </h3>
+        <span>tester</span>
+        
+        <h3 classname = "detail-subheaders"> Noise Level </h3>
+
+        <h3 classname = "detail-subheaders"> Ambience </h3>
+
+        <h3 classname = "detail-subheaders"> Temperature </h3>
+      
+
+
       <div>     {/*A button to add a room*/}
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
-
-      {/*
-      { 
-        // TESTER BUTTON FOR DETAILS PAGE
-        // DO NOT REMOVE UNTIL HOME PAGE LINKED TO API
-      }
-      <button
-        onClick={() => navigateToPage('/spotdetails')}
-        className="page-button"
-      >
-        View Spot Details
-      </button>
-      */}
 
     </div> //Content div
   )
