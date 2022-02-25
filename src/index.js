@@ -15,7 +15,7 @@ ReactDOM.render(
       domain={domain}
       clientId={clientId}
       audience={audience}
-      redirectUri={window.location.origin + "/HotSpots-ui"}
+      redirectUri={window.location.origin}
     >
       <App />
     </Auth0Provider>
