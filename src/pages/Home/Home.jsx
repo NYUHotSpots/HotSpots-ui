@@ -17,15 +17,18 @@ export default function Home(){
 
   return (
     <div className="content">
+
+    <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
+      <h1>Hotspots</h1>
       {isAuthenticated ? (
         <button onClick={() => logout({ returnTo: window.location.origin })}>
           Log Out
         </button>
       ) : (
-        <button onClick={() => loginWithRedirect()}>Log In</button>
+        <button onClick={() => loginWithRedirect()} className="page-button">Log In / Sign Up</button>
       )}
+    </div>
 
-      <h1>Hotspots</h1>
       <div className="intro">
         <p className="quote">"Crowdsourcing study spaces for students by students"</p>
         <p className="dev-names">Tiffany Chan, Kevin Chen, Kevin Iza, Kathy Pan</p>
@@ -45,46 +48,6 @@ export default function Home(){
         </button>
       </div>
       <div className="grid-container">
-        <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
-          <SpotCard
-            component={component}
-            height={height}
-            image={image}
-            onClick={() => navigateToPage('/rooms')} // todo change path
-          />
-        </div>
-        <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
-          <SpotCard
-            component={component}
-            height={height}
-            image={image}
-            onClick={() => navigateToPage('/rooms')} // todo change path
-          />
-        </div>
-        <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
-          <SpotCard
-            component={component}
-            height={height}
-            image={image}
-            onClick={() => navigateToPage('/rooms')} // todo change path
-          />
-        </div>
-        <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
-          <SpotCard
-            component={component}
-            height={height}
-            image={image}
-            onClick={() => navigateToPage('/rooms')} // todo change path
-          />
-        </div>
-        <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
-          <SpotCard
-            component={component}
-            height={height}
-            image={image}
-            onClick={() => navigateToPage('/rooms')} // todo change path
-          />
-        </div>
         <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
           <SpotCard
             component={component}
