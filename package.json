@@ -1,6 +1,6 @@
 {
   "name": "nyuhotspots",
-  "homepage": "https://nyuhotspots.github.io/HotSpots-ui",
+  "homepage": "http://www.nyuhotspots.tech",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
