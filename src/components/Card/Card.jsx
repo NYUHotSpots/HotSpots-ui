@@ -5,22 +5,21 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function SpotCard({component,height,image,hpath, name, address}) {
+export default function SpotCard({component,height,image,hpath, name, address}){
     return (
         
         <Card sx={{ maxWidth: 400}}>  {/* Is the max width of a card */}
             <CardActionArea>
 
                 <CardMedia
-                    component={component}
-                    height={height}
+                    component="img"
+                    height= "200"
                     image={image}
                 />
 
                 <CardContent>
-                    {name}
                     <Typography gutterBottom variant="h5">
-                       {name}
+                        {name}
                     </Typography>
 
                     <Typography variant="body2" color="text.secondary">
