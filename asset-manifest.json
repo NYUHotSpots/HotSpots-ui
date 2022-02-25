@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/HotSpots-ui/static/css/main.5d90788a.css",
-    "main.js": "/HotSpots-ui/static/js/main.89511f7d.js",
+    "main.css": "/HotSpots-ui/static/css/main.c6942b24.css",
+    "main.js": "/HotSpots-ui/static/js/main.cedbaf01.js",
     "static/js/787.096ca10f.chunk.js": "/HotSpots-ui/static/js/787.096ca10f.chunk.js",
     "static/media/Makerspace.jpg": "/HotSpots-ui/static/media/Makerspace.2cc419b2cc18155f1beb.jpg",
     "index.html": "/HotSpots-ui/index.html",
-    "main.5d90788a.css.map": "/HotSpots-ui/static/css/main.5d90788a.css.map",
-    "main.89511f7d.js.map": "/HotSpots-ui/static/js/main.89511f7d.js.map",
+    "main.c6942b24.css.map": "/HotSpots-ui/static/css/main.c6942b24.css.map",
+    "main.cedbaf01.js.map": "/HotSpots-ui/static/js/main.cedbaf01.js.map",
     "787.096ca10f.chunk.js.map": "/HotSpots-ui/static/js/787.096ca10f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d90788a.css",
-    "static/js/main.89511f7d.js"
+    "static/css/main.c6942b24.css",
+    "static/js/main.cedbaf01.js"
   ]
 }
