@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 
 import SpotItem from '../../components/SpotItem/SpotItem';
 
-import './rooms.css';       
+import './rooms.css';
 
 export default function Rooms() {
   const [spots, setSpots] = useState(undefined);
@@ -19,7 +19,9 @@ export default function Rooms() {
 
 
   useEffect(() => {
-    axios.get('https://hotspotsapi.herokuapp.com/spot') // Gets the spots from our api
+    axios.get('https://hotspotsapi.herokuapp.com/spot/list') // Gets the spots from our api
+    //axios.get('https://hotspotsapi.herokuapp.com/spot/${spot_id}') // link for specific spot, doesn't work
+
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
         console.log('getting values'); // Remove later, testing
