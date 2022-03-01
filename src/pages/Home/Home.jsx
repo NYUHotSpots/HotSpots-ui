@@ -63,7 +63,7 @@ export default function Home(){
       </div>
       <div className = "button-container">
         <button
-            onClick={() => navigateToPage('/rooms')}
+            onClick={() => navigateToPage('/rooms')}// todo change path
             className="page-button"
             >
             View All Spots
@@ -76,17 +76,15 @@ export default function Home(){
         </button>
       </div>
 
-      
       <div className="grid-container"> 
-        {spots ? spots.map((spot, index) => (
-          <div className="grid-item" onClick={() => navigateToPage('/rooms')}>
+        {spots ? spots.map((spot) => (
+          <div className="grid-item" onClick={() => navigateToPage('/rooms/')}>
             <SpotCard
               component={spot.component}
               height={spot.height}
               image={spot.spotImage}
               name={spot.spotName}
               address={spot.spotAddress}
-              onClick={() => navigateToPage('/rooms')} // todo change path
             />
           </div>
         )) : (

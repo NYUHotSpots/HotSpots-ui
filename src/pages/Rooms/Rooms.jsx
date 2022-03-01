@@ -6,6 +6,8 @@ import SpotItem from '../../components/SpotItem/SpotItem';
 
 import './rooms.css';
 
+import { useParams } from 'react-router';
+
 export default function Rooms() {
   const [spots, setSpots] = useState(undefined);
   const [error, setError] = useState(undefined);
@@ -17,8 +19,11 @@ export default function Rooms() {
 
   const history = useHistory();
 
+  const spotID = useParams();
+
 
   useEffect(() => {
+    console.log('Before Axios, spotID = ' + spotID);
     axios.get('https://hotspotsapi.herokuapp.com/spot/list') // Gets the spots from our api
     //axios.get('https://hotspotsapi.herokuapp.com/spot/${spot_id}') // link for specific spot, doesn't work
 
