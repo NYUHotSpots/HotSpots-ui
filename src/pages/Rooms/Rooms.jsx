@@ -19,7 +19,7 @@ export default function Rooms() {
 
   const history = useHistory();
 
-  const spotID = useParams();
+  const { spotID } = useParams();
 
 
   useEffect(() => {
@@ -33,6 +33,7 @@ export default function Rooms() {
         if (response.data){
           console.log('api sent data');// Remove later, testing
           setSpots(response.data);
+          console.log("Retrieved spots from DB", spots);
         }
         console.log('At the end');// Remove later, testing
       })
