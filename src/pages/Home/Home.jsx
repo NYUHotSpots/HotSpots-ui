@@ -85,6 +85,7 @@ export default function Home(){
               image={spot.spotImage}
               name={spot.spotName}
               address={spot.spotAddress}
+              key={spot["_id"]["$oid"]}
             />
           </div>
         )) : (
