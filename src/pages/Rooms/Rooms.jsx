@@ -46,12 +46,13 @@ export default function Rooms() {
     //     setError(error);
     //   });
 
-  }, [refresh, spotID, spots]);
+  }, [refresh, spotID, spots, getSpotDetails]);
 
   const getSpotDetails = () => {
     axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
       .then((response) => {
         console.log(response.data);
+        setSpots(response.data);
       })
       .catch(error => {
         console.log(error);
