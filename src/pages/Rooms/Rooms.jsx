@@ -21,6 +21,17 @@ export default function Rooms() {
 
   const { spotID } = useParams();
 
+  const getSpotDetails = () => {
+    axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
+      .then((response) => {
+        console.log(response.data);
+        setSpots(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
 
   useEffect(() => {
     console.log('Before Axios, spotID = ' + spotID);
@@ -46,18 +57,9 @@ export default function Rooms() {
     //     setError(error);
     //   });
 
-  }, [refresh, spotID, spots, getSpotDetails]);
+  });
 
-  const getSpotDetails = () => {
-    axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
-      .then((response) => {
-        console.log(response.data);
-        setSpots(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+  
 
   const handleCreateRoom = () => {
     axios.post(`https://demo-repo23.herokuapp.com/rooms/create/${newRoomName}`)  // Got To change to our own area of adding locations
@@ -108,7 +110,7 @@ export default function Rooms() {
         </div>
       )}
 
-      <div className="rooms-list">  {/*Gets the spots also handles when no rooms are found*/}
+      {/* <div className="rooms-list">
         {spots ? spots.map((spot, index) => (
           <SpotItem
             key={`${spot.spotName}-${index}`}
@@ -121,7 +123,7 @@ export default function Rooms() {
             <p>Sorry there are no Locations right now... Come back later </p>
           </div>
         )}
-      </div>
+      </div> */}
 
            {/*Sets up the 'table' with details*/}
         <h3 className = "detail-subheaders"> Availability </h3>
