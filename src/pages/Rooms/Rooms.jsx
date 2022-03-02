@@ -42,7 +42,17 @@ export default function Rooms() {
         console.log('You didnt get the value RIPS'); // Remove later, testing
         setError(error);
       });
-  }, [refresh])
+  }, [refresh, spotID, spots]);
+
+  const getSpotDetails = () => {
+    axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   const handleCreateRoom = () => {
     axios.post(`https://demo-repo23.herokuapp.com/rooms/create/${newRoomName}`)  // Got To change to our own area of adding locations
