@@ -2,14 +2,11 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
-import SpotItem from '../../components/SpotItem/SpotItem';
-
 import './rooms.css';
 
 import { useParams } from 'react-router';
 
 export default function Rooms() {
-  const [spots, setSpots] = useState(undefined);
   const [error, setError] = useState(undefined);
 
   const [refresh, setRefresh] = useState(undefined);
@@ -25,7 +22,6 @@ export default function Rooms() {
     axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
       .then((response) => {
         console.log(response.data);
-        setSpots(response.data);
       })
       .catch(error => {
         console.log(error);
