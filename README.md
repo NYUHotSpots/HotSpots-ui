@@ -55,3 +55,4 @@ The page will reload when you make changes.\
 - React
 - [material-ui](https://mui.com/getting-started/installation/)
 - Figma (for making Mockups)
+- netlify
