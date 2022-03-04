@@ -1,7 +1,13 @@
 .spot-details {
-    width: 100%;
-    height:auto;
-    display: inline;
-    align-items: center;
-    justify-content: space-between;
-  }
+  width: 100%;
+  height:auto;
+  display: inline;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+img{
+  display: block;
+  float: left;
+}

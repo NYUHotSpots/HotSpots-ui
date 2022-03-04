@@ -60,3 +60,8 @@
   margin: 0;
   white-space: nowrap;
 }
+
+/* attempt style buttons to be on bottom left, under image */
+.button{
+  clear: left;
+}
