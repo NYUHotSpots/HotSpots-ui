@@ -2,8 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Home from './pages/Home/Home';
-import Rooms from './pages/Rooms/Rooms';
-import Users from './pages/Users/Users';
+import SpotInfo from './pages/SpotInfo/SpotInfo';
 
 import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
@@ -11,8 +10,6 @@ import CreateReview from './pages/CreateReview/CreateReview';
 
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Profile from './pages/Authentication/Profile';
-
-//import SpotDetails from './pages/SpotDetails/SpotDetails';
 
 function App() {
   return (
@@ -24,10 +21,7 @@ function App() {
               <Home />
             </Route>
             <Route exact={true} path={'/spot/:spotID'}>
-              <Rooms />
-            </Route>
-            <Route exact={true} path={'/users'}>
-              <Users />
+              <SpotInfo />
             </Route>
             <Route exact={true} path={'/CheckReviews'}>
               <CheckReviews />
@@ -36,12 +30,6 @@ function App() {
               <CreateReview />
             </Route>
             <ProtectedRoute path="/profile" component={Profile} />
-            {/*
-            // setup for SpotDetails
-            <Route exact={true} path={'/spotdetails'}>
-              <SpotDetails />
-            </Route>
-            */}
           </Switch>
         </Router>
       </div>
