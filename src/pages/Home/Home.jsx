@@ -69,7 +69,7 @@ export default function Home(){
             View All Spots
         </button>
         <button
-            onClick={() => navigateToPage('/rooms')} // todo change path
+            onClick={() => navigateToPage('/createspot')} // todo change path
             className="page-button"
             >
             Add New Spot

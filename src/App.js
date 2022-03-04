@@ -8,6 +8,8 @@ import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
 import CreateReview from './pages/CreateReview/CreateReview';
 
+import CreateSpot from './pages/CreateSpot/CreateSpot';
+
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Profile from './pages/Authentication/Profile';
 
@@ -20,15 +22,23 @@ function App() {
             <Route exact={true} path={'/'}>
               <Home />
             </Route>
+
             <Route exact={true} path={'/spot/:spotID'}>
               <SpotInfo />
             </Route>
+
             <Route exact={true} path={'/CheckReviews'}>
               <CheckReviews />
             </Route>
+
             <Route exact={true} path={'/createreview'}>
               <CreateReview />
             </Route>
+
+            <Route exact={true} path={'/createspot'}>
+              <CreateSpot />
+            </Route>
+
             <ProtectedRoute path="/profile" component={Profile} />
           </Switch>
         </Router>
