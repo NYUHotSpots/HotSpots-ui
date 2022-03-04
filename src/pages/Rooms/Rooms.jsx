@@ -7,6 +7,7 @@ import './rooms.css';
 import { useParams } from 'react-router';
 
 export default function Rooms() {
+  const [spot, setSpot] = useState([]);
   const [error, setError] = useState(undefined);
 
   const [refresh, setRefresh] = useState(undefined);
@@ -18,21 +19,25 @@ export default function Rooms() {
 
   const { spotID } = useParams();
 
-  const getSpotDetails = () => {
-    axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
 
   useEffect(() => {
     console.log('Before Axios, spotID = ' + spotID);
 
+    const getSpotDetails = () => {
+      axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
+        .then((response) => {
+          console.log(response.data);
+          setSpot(response.data);
+        })
+        .catch(error => {
+          console.log("Error caught");
+          setError(error);
+        });
+    };
+
     getSpotDetails();
+
+    console.log("After Axios spot = " + spot)
 
     // axios.get('https://hotspotsapi.herokuapp.com/spot/list') // Gets the spots from our api
     // //axios.get('https://hotspotsapi.herokuapp.com/spot/${spot_id}') // link for specific spot, doesn't work
@@ -53,7 +58,7 @@ export default function Rooms() {
     //     setError(error);
     //   });
 
-  });
+  }, []);
 
   
 
@@ -72,7 +77,7 @@ export default function Rooms() {
   return (
     <div className="content">
       {isModalOpen &&
-        <div className="create-modal"> {/*Is the popup to add a new room (GOT TO Change text)*/}
+        <div className="create-modal"> {/*Is the popup to add a new room (GOT to get rid of)*/}
 
           <input
             className="room-input"
@@ -89,25 +94,20 @@ export default function Rooms() {
         </div>
       }
 
-      <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
-        <h1>[Spot Location Name]</h1>
-        
-        <button
-          onClick={() => history.push('/')}
-          className="button"
-        >
-          {"<-- "}Go Back Home
-        </button>
-      </div>
-
-      {error && (      /* Creates the Error box when there are no rooms */
-        <div className="rooms-error-box">
-          <p>{error.toString()}</p>
+      <div className = "spot_details">  {/* showing the spot details */}
+        <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
+          <h1>{spot.spotName}</h1>
+          
+          <button
+            onClick={() => history.push('/')}
+            className="button"
+          >
+            {"<-- "}Go Back Home
+          </button>
         </div>
-      )}
-
-      {/* <div className="rooms-list">
-        {spots ? spots.map((spot, index) => (
+      </div>
+      {/*<div className="rooms-list">
+        {spot ? spot.map((spot) => (
           <SpotItem
             key={`${spot.spotName}-${index}`}
             name={spot.spotName}
@@ -118,8 +118,8 @@ export default function Rooms() {
           <div className="rooms-empty">
             <p>Sorry there are no Locations right now... Come back later </p>
           </div>
-        )}
-      </div> */}
+        )} 
+      </div>*/}
 
            {/*Sets up the 'table' with details*/}
         <h3 className = "detail-subheaders"> Availability </h3>
