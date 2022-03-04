@@ -19,10 +19,7 @@ export default function Rooms() {
 
   const { spotID } = useParams();
 
-
   useEffect(() => {
-    console.log('Before Axios, spotID = ' + spotID);
-
     const getSpotDetails = () => {
       axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
         .then((response) => {
@@ -37,28 +34,7 @@ export default function Rooms() {
 
     getSpotDetails();
 
-    console.log("After Axios spot = " + spot)
-
-    // axios.get('https://hotspotsapi.herokuapp.com/spot/list') // Gets the spots from our api
-    // //axios.get('https://hotspotsapi.herokuapp.com/spot/${spot_id}') // link for specific spot, doesn't work
-
-    //   .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
-    //     console.log(response.data);
-    //     console.log('getting values'); // Remove later, testing
-    //     if (response.data){
-    //       console.log('api sent data');// Remove later, testing
-    //       setSpots(response.data);
-    //       console.log("Retrieved spots from DB", spots);
-    //     }
-    //     console.log('At the end');// Remove later, testing
-    //   })
-    //   .catch(error => {       //If an error is thrown this catch puts up a warning instead
-    //     console.log(error);
-    //     console.log('You didnt get the value RIPS'); // Remove later, testing
-    //     setError(error);
-    //   });
-
-  }, []);
+  }, [spotID]);
 
   
 
@@ -93,6 +69,13 @@ export default function Rooms() {
 
         </div>
       }
+
+      
+      {error && (
+        <div className="rooms-error-box">
+          <p>{error.toString()}</p>
+        </div>
+      )}
 
       <div className = "spot_details">  {/* showing the spot details */}
         <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
