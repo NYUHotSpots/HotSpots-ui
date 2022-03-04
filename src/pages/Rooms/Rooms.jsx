@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
+import SpotDetail from '../../components/SpotDetail/SpotDetail';
+
 import './rooms.css';
 
 import { useParams } from 'react-router';
@@ -51,7 +53,7 @@ export default function Rooms() {
   }
 
   return (
-    <div className="content">
+    <div className="content1">
       {isModalOpen &&
         <div className="create-modal"> {/*Is the popup to add a new room (GOT to get rid of)*/}
 
@@ -78,42 +80,26 @@ export default function Rooms() {
       )}
 
       <div className = "spot_details">  {/* showing the spot details */}
-        <div className="rooms-header">  {/*Displays the title "Locations" and a back button */}
-          <h1>{spot.spotName}</h1>
-          
-          <button
-            onClick={() => history.push('/')}
-            className="button"
-          >
-            {"<-- "}Go Back Home
-          </button>
-        </div>
-      </div>
-      {/*<div className="rooms-list">
-        {spot ? spot.map((spot) => (
-          <SpotItem
-            key={`${spot.spotName}-${index}`}
-            name={spot.spotName}
-            image= {spot.spotImage}
-            address={spot.spotAddress}
-          />
-        )) : (
-          <div className="rooms-empty">
-            <p>Sorry there are no Locations right now... Come back later </p>
-          </div>
-        )} 
-      </div>*/}
-
-           {/*Sets up the 'table' with details*/}
-        <h3 className = "detail-subheaders"> Availability </h3>
-        <span>tester</span>
+        {<SpotDetail
+          name={spot.spotName}
+          image={spot.spotImage}
+          address={spot.spotAddress}
+          capacity={spot.spotCapacity}
+          availability={spot.factorAvailability}
+          noise={spot.factorNoiseLevel}
+          temp={spot.factorTemperature}
+          ambi={spot.factorAmbiance}
+          reviews={spot.reviews}
+        />}
         
-        <h3 className = "detail-subheaders"> Noise Level </h3>
+        <button
+          onClick={() => history.push('/')}
+          className="button"
+        >
+          {"<-- "}Go Back Home
+        </button>
+      </div>
 
-        <h3 className = "detail-subheaders"> Ambience </h3>
-
-        <h3 className = "detail-subheaders"> Temperature </h3>
-      
       <div>     {/*A button to add a room*/}
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
