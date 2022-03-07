@@ -23,7 +23,7 @@ function App() {
               <Home />
             </Route>
 
-            <Route exact={true} path={'/spot/:spotID'}>
+            <Route exact={true} path={'/spots/:spotID'}>
               <SpotInfo />
             </Route>
 

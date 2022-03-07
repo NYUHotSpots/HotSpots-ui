@@ -21,7 +21,7 @@ export default function CheckReviews() {
 
   useEffect(() => {
     // still links to demo Rooms
-    axios.get('https://demo-repo23.herokuapp.com/rooms/list') // Got To change to our own herokuapp locations list
+    axios.get('https://demo-repo23.herokuapp.com/spots/list') // Got To change to our own herokuapp locations list
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
         if (response.data){

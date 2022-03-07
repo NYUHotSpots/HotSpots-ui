@@ -26,7 +26,7 @@ export default function Home(){
   }
 
   useEffect(() => {
-    axios.get('https://hotspotsapi.herokuapp.com/spot/list') // Gets the spots from our api
+    axios.get('https://hotspotsapi.herokuapp.com/spots/list') // Gets the spots from our api
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
         console.log('getting values'); // Remove later, testing
@@ -78,7 +78,7 @@ export default function Home(){
 
       <div className="grid-container"> 
         {spots ? spots.map((spot) => (
-          <div className="grid-item" onClick={() => navigateToPage(`/spot/${spot["_id"]["$oid"]}`)}>
+          <div className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>
             <SpotCard
               component={spot.component}
               height={spot.height}

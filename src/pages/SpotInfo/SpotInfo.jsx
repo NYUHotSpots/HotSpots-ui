@@ -23,7 +23,7 @@ export default function Rooms() {
 
   useEffect(() => {
     const getSpotDetails = () => {
-      axios.get(`https://hotspotsapi.herokuapp.com/spot/${spotID}`)
+      axios.get(`https://hotspotsapi.herokuapp.com/spots/${spotID}`)
         .then((response) => {
           console.log(response.data);
           setSpot(response.data);
