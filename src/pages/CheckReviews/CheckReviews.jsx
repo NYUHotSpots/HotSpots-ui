@@ -13,6 +13,7 @@ export default function CheckReviews() {
 
   const [reviews, setReviews] = useState(undefined);
   const [error, setError] = useState(undefined);
+  const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
   //const [refresh, setRefresh] = useState(0);
   const [refresh] = useState(0);    // for testing, need to revert to OG later
@@ -21,7 +22,7 @@ export default function CheckReviews() {
 
   useEffect(() => {
     // still links to demo Rooms
-    axios.get('https://demo-repo23.herokuapp.com/spots/list') // Got To change to our own herokuapp locations list
+    axios.get(`${apiServerUrl}/spot_reviews/${123}`) // Got To change to our own herokuapp locations list
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
         if (response.data){
