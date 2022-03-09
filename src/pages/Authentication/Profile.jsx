@@ -15,16 +15,24 @@ export const Profile = () => {
         const accessToken = await getAccessTokenSilently();
         console.log(accessToken);
 
+        // const config = {
+        //   url: `${apiServerUrl}/hello`,
+        //   method: "GET",
+        //   headers: {
+        //     "content-type": "application/json",
+        //     Authorization: `Bearer ${accessToken}`,
+        //   },
+        // }
+        // const response = await axios(config);
+        
         const config = {
-          url: `${apiServerUrl}/hello`,
-          method: "GET",
           headers: {
             "content-type": "application/json",
             Authorization: `Bearer ${accessToken}`,
           },
         }
+        const response = await axios.get(`${apiServerUrl}/hello`, config);
 
-        const response = await axios(config);
         const { data } = response;
         console.log(data);
       } catch (e) {
