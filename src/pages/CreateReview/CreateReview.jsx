@@ -1,7 +1,8 @@
 //import React, {useEffect, useState} from 'react';
 import React, { useState } from "react"; // for debugging, return to OG later
 //import axios from 'axios';    // for debugging, uncomment later
-import { useHistory } from "react-router-dom"; // for debugging, uncomment later
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 import "./createreview.css";
 
@@ -12,17 +13,12 @@ export default function CreateReview() {
   //const [newReviewName, setNewReviewName] = useState('');
   const [newReviewName] = useState("");
 
+  const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+
   const createReview = () => {
     const sendRequest = async () => {
       try {
-        const accessToken = await getAccessTokenSilently();
-        console.log(accessToken);
-
         const config = {
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
           body: {
             spotID: "",
             reviewTitle: "",
