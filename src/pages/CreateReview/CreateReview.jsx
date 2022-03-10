@@ -1,7 +1,7 @@
 //import React, {useEffect, useState} from 'react';
 import React, { useState } from "react"; // for debugging, return to OG later
 //import axios from 'axios';    // for debugging, uncomment later
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import "./createreview.css";
@@ -41,14 +41,14 @@ export default function CreateReview() {
     sendRequest();
   };
 
-  const history = useHistory();
+  // const history = useHistory();
   return (
     <div className="content">
       <div className="createreview-header">
         {" "}
         {/*Displays the title "Locations" and a back button */}
         <h1>Write a Review</h1>
-        <button onClick={() => history.push("/")} className="button">
+        <button onClick={() => createReview()} className="button">
           {"<--"}Go Back Home
         </button>
       </div>

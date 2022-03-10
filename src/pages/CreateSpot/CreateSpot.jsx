@@ -1,17 +1,17 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function Home() {
-  const history = useHistory();
+  // const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
-  function navigateToPage(path) {
-    history.push(path);
-  }
+  // function navigateToPage(path) {
+  //   history.push(path);
+  // }
 
   const createSpot = () => {
     const sendRequest = async () => {

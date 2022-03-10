@@ -16,7 +16,7 @@ export default function CheckReviews() {
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
   //const [refresh, setRefresh] = useState(0);
-  const [refresh] = useState(0);    // for testing, need to revert to OG later
+  // const [refresh] = useState(0);    // for testing, need to revert to OG later
   //const [isModalOpen, setIsModalOpen] = useState(false);
   const history = useHistory();
 
@@ -33,7 +33,7 @@ export default function CheckReviews() {
         console.log(error);
         setError(error);
       });
-  }, [refresh])
+  })
 
   return (
     <div className="content">
