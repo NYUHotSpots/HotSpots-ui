@@ -104,10 +104,14 @@ export default function Rooms() {
           {"<-- "}Go Back Home
         </button>
       </div>
-
+      
+      <br></br><br></br>
       <div>     {/*A button to add a room*/}
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
+      
+      <br></br><br></br>
+      <button onClick={() => history.push('/createreview')} className="page-button"> Add a Review </button>
 
     </div> //body div
   )

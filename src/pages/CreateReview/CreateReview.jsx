@@ -1,7 +1,7 @@
 //import React, {useEffect, useState} from 'react';
 import React, { useState } from "react"; // for debugging, return to OG later
 //import axios from 'axios';    // for debugging, uncomment later
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import "./createreview.css";
@@ -12,6 +12,7 @@ export default function CreateReview() {
 
   //const [newReviewName, setNewReviewName] = useState('');
   const [newReviewName] = useState("");
+  const history = useHistory();
 
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
@@ -48,9 +49,11 @@ export default function CreateReview() {
         {" "}
         {/*Displays the title "Locations" and a back button */}
         <h1>Write a Review</h1>
-        <button onClick={() => createReview()} className="button">
-          {"<--"}Go Back Home
-        </button>
+        <button onClick={() => history.push('/')} className="page-button"> {"<-- "}Go Back Home </button>
+      </div>
+
+      <div className="contents">
+        <button onClick={() => createReview()} className="page-button"> createReview() Button </button> 
       </div>
 
       {/*
