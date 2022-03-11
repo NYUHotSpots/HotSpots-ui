@@ -3,6 +3,11 @@ import React from 'react';
 import './spotdetail.css';
 
 export default function SpotItem({name, image, address, capacity, availability, noise, temp, ambi, reviews}) {
+
+  console.log(availability)
+
+  console.log({availability}["availability"]["factorValue"])
+
   return (
     <div className="spot-details">
       <h1> {name} </h1>
@@ -11,7 +16,7 @@ export default function SpotItem({name, image, address, capacity, availability, 
       
       <img src={image} alt="Location" width="300" height="300"/>
 
-      <h2>Availability</h2>
+      <h2>Availability:</h2>
 
       <h2>Noise Level</h2>
 
