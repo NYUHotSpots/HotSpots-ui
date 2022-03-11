@@ -58,7 +58,7 @@ export default function Rooms() {
   }
 
   return (
-    <div className="content1">
+    <div className="body">
       {isModalOpen &&
         <div className="create-modal"> {/*Is the popup to add a new room (GOT to get rid of)*/}
 
@@ -109,6 +109,6 @@ export default function Rooms() {
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
 
-    </div> //Content div
+    </div> //body div
   )
 }

@@ -78,7 +78,7 @@ export default function Home(){
 
       <div className="grid-container"> 
         {spots ? spots.map((spot) => (
-          <div className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>
+          <div className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)} style={{height: "100%"}}>
             <SpotCard
               component={spot.component}
               height={spot.height}
