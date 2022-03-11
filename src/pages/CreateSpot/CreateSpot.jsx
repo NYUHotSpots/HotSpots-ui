@@ -1,10 +1,12 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function Home() {
-  // const history = useHistory();
+import './createspot.css';
+
+export default function CreateSpot() {
+  const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
@@ -48,15 +50,41 @@ export default function Home() {
 
   return (
     <div className="content">
-      <h1>🤗 SWE React Demo </h1>
-      <p> Hello from class </p>
-      <div>
-        <p className="quote">"A list is only as strong as its weakest link"</p>
-        <p className="quote-author">- Donald Knuth</p>
+      <div className="rooms-header">
+        <h1>Add a Spot</h1>
+        <button onClick={() => history.push('/')} className="page-button"> {"<-- "}Go Back Home </button>
+
+        <button onClick={() => createSpot()} className="page-button"> Sample Button </button> 
+        {/* don't know why button is clicking back to this page, is here to remove warning error*/}
+
       </div>
-      <button onClick={() => createSpot()} className="page-button">
-        Home
-      </button>
+
+
+      <div className="contents">
+        <form>
+          <label className="item-styling"> <big><b>Spot / Location Name: </b></big> </label>
+          <input type="text" name="Spot Name" placeholder="NYU Makerspace" /><br></br><br></br>
+
+          <label className="item-styling"> <big><b>Address: </b></big> </label>
+          <input type="text" name="address" placeholder="6 MetroTech Center" /><br></br><br></br>
+
+          <label className="item-styling"> <big><b>Capacity: </b></big> </label>
+          <input type="text" name="capacity" placeholder="100" /><br></br><br></br>
+
+          <label className="item-styling"> <big><b>Image Link: </b></big> </label>
+          <input type="text" name="img-link" placeholder="https://example.com/" /><br></br><br></br>
+          
+
+          
+          <input className="submit-button" type="submit" value="Submit" />
+        </form>
+
+      </div>
+
+
     </div>
+    
+
+    
   );
 }
