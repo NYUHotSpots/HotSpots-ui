@@ -13,6 +13,7 @@ export default function Rooms() {
   const [error, setError] = useState(undefined);
 
   const [refresh, setRefresh] = useState(undefined);
+  const [isLoading, setLoading] = useState(true);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newRoomName, setNewRoomName] = useState('');
@@ -27,6 +28,7 @@ export default function Rooms() {
         .then((response) => {
           console.log(response.data);
           setSpot(response.data);
+          setLoading(false);
         })
         .catch(error => {
           console.log("Error caught");
@@ -38,6 +40,9 @@ export default function Rooms() {
 
   }, [spotID]);
 
+  if(isLoading){           // A way to wait for the response from axios before rendering the page
+    return <div></div>         // returns an empty paragraph element
+  }
   
 
   const handleCreateRoom = () => {
@@ -53,7 +58,7 @@ export default function Rooms() {
   }
 
   return (
-    <div className="content1">
+    <div className="body">
       {isModalOpen &&
         <div className="create-modal"> {/*Is the popup to add a new room (GOT to get rid of)*/}
 
@@ -99,11 +104,15 @@ export default function Rooms() {
           {"<-- "}Go Back Home
         </button>
       </div>
-
+      
+      <br></br><br></br>
       <div>     {/*A button to add a room*/}
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Location </button>
       </div>
+      
+      <br></br><br></br>
+      <button onClick={() => history.push('/createreview')} className="page-button"> Add a Review </button>
 
-    </div> //Content div
+    </div> //body div
   )
 }

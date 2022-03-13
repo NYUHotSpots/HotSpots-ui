@@ -89,24 +89,19 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="grid-container">
-        {spots ? (
-          spots.map((spot) => (
-            <div
-              className="grid-item"
-              onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
-            >
-              <SpotCard
-                component={spot.component}
-                height={spot.height}
-                image={spot.spotImage}
-                name={spot.spotName}
-                address={spot.spotAddress}
-                key={spot["_id"]["$oid"]}
-              />
-            </div>
-          ))
-        ) : (
+      <div className="grid-container"> 
+        {spots ? spots.map((spot) => (
+          <div className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)} style={{height: "100%"}}>
+            <SpotCard
+              component={spot.component}
+              height={spot.height}
+              image={spot.spotImage}
+              name={spot.spotName}
+              address={spot.spotAddress}
+              key={spot["_id"]["$oid"]}
+            />
+          </div>
+        )) : (
           <div className="rooms-empty">
             <p>Sorry there are no Locations right now... Come back later </p>
           </div>

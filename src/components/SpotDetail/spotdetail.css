@@ -1,13 +1,28 @@
-.spot-details {
-  width: 100%;
-  height:auto;
-  display: inline;
-  align-items: center;
-  justify-content: space-between;
+.spot-details{
+  padding-bottom: 40px;
+}
+.title{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding-bottom: 40px;
 }
 
+#visual{
+  width:50%;
+  float:left;
+}
 
 img{
   display: block;
-  float: left;
+  margin:auto;
+}
+
+#data{
+  width:50%;
+  float:left;
+}
+
+#clear{
+  clear:both;
 }
