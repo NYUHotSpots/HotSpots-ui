@@ -91,14 +91,13 @@ export default function Home() {
 
       <div className="grid-container"> 
         {spots ? spots.map((spot) => (
-          <div className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)} style={{height: "100%"}}>
+          <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)} style={{height: "100%"}}>
             <SpotCard
               component={spot.component}
               height={spot.height}
               image={spot.spotImage}
               name={spot.spotName}
               address={spot.spotAddress}
-              key={spot["_id"]["$oid"]}
             />
           </div>
         )) : (
