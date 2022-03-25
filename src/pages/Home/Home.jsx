@@ -6,7 +6,7 @@ import SpotCard from "../../components/Card/Card";
 import axios from "axios";
 
 export default function Home() {
-  //const [component] = useState("img");
+  //const [component] = useState("img");             Delete THIS if not in use
   //const [height] = React.useState("140");
   //const image = require('./images/nyu.jpg');
   // const [path, setPath] = useState('/rooms')
@@ -91,7 +91,7 @@ export default function Home() {
 
       <div className="grid-container"> 
         {spots ? spots.map((spot) => (
-          <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)} style={{height: "100%"}}>
+          <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>
             <SpotCard
               component={spot.component}
               height={spot.height}

@@ -21,6 +21,10 @@ export default function Rooms() {
 
   const history = useHistory();
 
+  function navigateToPage(path) {
+    history.push(path);
+  }
+
   const { spotID } = useParams();
 
   useEffect(() => {
@@ -41,7 +45,7 @@ export default function Rooms() {
 
   }, [setError, spotID]);
 
-  if(isLoading){           // A way to wait for the response from axios before rendering the page
+  if(isLoading){           // A way to wait for the response from axios before  rendering the page
     return <div></div>         // returns an empty paragraph element
   }
 
@@ -60,18 +64,25 @@ export default function Rooms() {
           ambi={spot.factorAmbiance}
           reviews={spot.reviews}
         />}
-      </div>
-      
-      <footer>
-        <button onClick={() => history.push('/createreview')} className="page-button"> Add a Review </button>
 
-        <button
-            onClick={() => history.push('/')}
-            className="button"
-          >
-            {"<-- "}Go Back Home
-        </button>
-      </footer>
+        <footer>
+          <button key={spot["_id"]["$oid"]} onClick={() => navigateToPage(`/createreview`)} className="page-button"> Add a Review </button> 
+
+          <button onClick={() => history.push('/createreview')} className="page-button"> Add a Review </button>
+
+          {/*       Used to pass information to the next page
+          <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>
+          */}
+
+          <button
+              onClick={() => history.push('/')}
+              className="button"
+            >
+              {"<-- "}Go Back Home
+          </button>
+        </footer>
+        
+      </div>
 
       <button
         onClick={() => history.push('/')}

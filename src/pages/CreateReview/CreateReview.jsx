@@ -3,6 +3,7 @@ import React, { useState } from "react"; // for debugging, return to OG later
 //import axios from 'axios';    // for debugging, uncomment later
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+//import { useParams } from 'react-router';
 
 import "./createreview.css";
 
@@ -13,8 +14,34 @@ export default function CreateReview() {
   //const [newReviewName, setNewReviewName] = useState('');
   const [newReviewName] = useState("");
   const history = useHistory();
+  //const [spot, setSpot] = useState([]);
+  //const [isLoading, setLoading] = useState(true);
+  //const [setError] = useState(undefined);
+
+  //const { spotID } = useParams();
 
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+
+  /*
+  useEffect(() => {
+    const getSpotDetails = () => {
+      axios.get(`https://hotspotsapi.herokuapp.com/spots/${spotID}`)
+        .then((response) => {
+          console.log(response.data);
+          setSpot(response.data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.log("Error caught");
+          setError(error);
+        });
+    };
+
+    getSpotDetails();
+
+  }, [setError, spotID]);
+
+  */
 
   const createReview = () => {
     const sendRequest = async () => {
@@ -42,9 +69,12 @@ export default function CreateReview() {
     sendRequest();
   };
 
+  console.log("before return");
+
   // const history = useHistory();
   return (
     <div className="content">
+      {console.log("hi")}
       <div className="createreview-header">
         {" "}
         {/*Displays the title "Locations" and a back button */}
@@ -52,7 +82,7 @@ export default function CreateReview() {
         <button onClick={() => history.push('/')} className="page-button"> {"<-- "}Go Back Home </button>
       </div>
 
-      <h2>Location Title</h2>
+      <h2>Location Name</h2>
       <h3>Location Address</h3>
 
       <div className="contents">
