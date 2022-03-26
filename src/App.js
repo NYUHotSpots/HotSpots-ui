@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Home from './pages/Home/Home';
 import SpotInfo from './pages/SpotInfo/SpotInfo';
+import UpdateSpotInfo from './pages/UpdateSpotInfo/UpdateSpotInfo';
 
 import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
@@ -37,6 +38,10 @@ function App() {
 
             <Route exact={true} path={'/createspot'}>
               <CreateSpot />
+            </Route>
+
+            <Route exact={true} path={'/updatespotinfo'}>
+              <UpdateSpotInfo />
             </Route>
 
             <ProtectedRoute path="/profile" component={Profile} />

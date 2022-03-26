@@ -85,7 +85,7 @@ export default function Rooms() {
       </div>
 
       <button
-        onClick={() => history.push('/')}
+        onClick={() => history.push('/updatespotinfo')}
         className="page-button"
         >
         Update Spot Details
