@@ -32,7 +32,7 @@ function App() {
               <CheckReviews />
             </Route>
 
-            <Route exact={true} path={'/createreview'}>
+            <Route exact={true} path={'/createreview/:spotID'}>
               <CreateReview />
             </Route>
 

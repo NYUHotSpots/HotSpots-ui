@@ -68,9 +68,9 @@ export default function Rooms() {
         />}
 
         <footer>
-          <button key={spot["_id"]["$oid"]} onClick={() => navigateToPage(`/createreview`)} className="page-button"> Add a Review </button> 
+          <button key={spot["_id"]["$oid"]} onClick={() => navigateToPage(`/createreview/${spotID}`)} className="page-button"> Add a Review </button> 
 
-          <button onClick={() => history.push('/createreview')} className="page-button"> Add a Review </button>
+          {/* <button onClick={() => history.push(`/createreview/${spotID}`)} className="page-button"> Add a Review </button> */}
 
           {/*       Used to pass information to the next page
           <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>
