@@ -25,7 +25,7 @@ export default function CreateReview() {
   /*
   useEffect(() => {
     const getSpotDetails = () => {
-      axios.get(`https://hotspotsapi.herokuapp.com/spots/${spotID}`)
+      axios.get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
           console.log(response.data);
           setSpot(response.data);

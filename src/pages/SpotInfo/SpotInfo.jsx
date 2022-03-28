@@ -21,6 +21,8 @@ export default function Rooms() {
 
   const history = useHistory();
 
+  const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+
   function navigateToPage(path) {
     history.push(path);
   }
@@ -29,7 +31,7 @@ export default function Rooms() {
 
   useEffect(() => {
     const getSpotDetails = () => {
-      axios.get(`https://hotspotsapi.herokuapp.com/spots/${spotID}`)
+      axios.get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
           console.log(response.data);
           setSpot(response.data);

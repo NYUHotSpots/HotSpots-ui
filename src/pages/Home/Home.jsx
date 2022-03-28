@@ -19,6 +19,8 @@ export default function Home() {
 
   const history = useHistory();
 
+  const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   function navigateToPage(path) {
@@ -27,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("https://hotspotsapi.herokuapp.com/spots/list") // Gets the spots from our api
+      .get(`${apiServerUrl}/spots/list`) // Gets the spots from our api
       .then((response) => {
         //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
