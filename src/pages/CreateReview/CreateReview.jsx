@@ -77,7 +77,7 @@ export default function CreateReview() {
 
         const response = await axios.post(
           `${apiServerUrl}/spot_review/create`,
-          body,
+          new URLSearchParams(body),
           config
         );
 

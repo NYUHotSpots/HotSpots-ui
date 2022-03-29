@@ -31,7 +31,7 @@ export default function CreateSpot() {
 
         const config = {
           headers: {
-            // "content-type": "application/x-www-form-urlencoded",
+            "content-type": "application/x-www-form-urlencoded",
             "Authorization": `Bearer ${accessToken}`,
             // "accept": "application/json"
           }
@@ -39,7 +39,7 @@ export default function CreateSpot() {
 
         const response = await axios.post(
           `${apiServerUrl}/spots/create`,
-          body,
+          new URLSearchParams(body),
           config
         );
 
