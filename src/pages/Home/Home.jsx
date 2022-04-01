@@ -108,6 +108,17 @@ export default function Home() {
         </button> 
       </div>
 
+      {/*
+      <div className="button-container" >
+        <button
+          onClick={() => navigateToPage('/updatespotfactors')}
+          className="page-button"
+        >
+          Update Spot Factors -- Still Testing
+        </button> 
+      </div>
+      */}
+
     </body>
   );
 }

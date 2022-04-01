@@ -84,6 +84,17 @@ export default function Rooms() {
         >
         Update Spot Details
       </button>
+      
+      
+      <div className="button-container" >
+        <button
+          onClick={() => navigateToPage('/updatespotfactors')}
+          className="page-button"
+        >
+          Update Spot Factors -- Still Testing
+        </button> 
+      </div>
+      
 
     </div> //body div
   )

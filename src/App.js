@@ -9,6 +9,7 @@ import './App.css';
 import CheckReviews from './pages/CheckReviews/CheckReviews';
 import CreateReview from './pages/CreateReview/CreateReview';
 import ViewReviews from './pages/ViewReviews/ViewReviews';
+import UpdateSpotFactors from './pages/UpdateSpotFactors/UpdateSpotFactors';
 
 import CreateSpot from './pages/CreateSpot/CreateSpot';
 
@@ -47,6 +48,10 @@ function App() {
 
             <Route exact={true} path={'/updatespotinfo'}>
               <UpdateSpotInfo />
+            </Route>
+
+            <Route exact={true} path={'/updatespotfactors'}>
+              <UpdateSpotFactors />
             </Route>
 
             <ProtectedRoute path="/profile" component={Profile} />
