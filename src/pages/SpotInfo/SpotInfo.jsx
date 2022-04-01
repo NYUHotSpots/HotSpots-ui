@@ -47,13 +47,12 @@ export default function Rooms() {
 
   }, [setError, spotID]);
 
-  if(isLoading){           // A way to wait for the response from axios before  rendering the page
+  if(isLoading){           // A way to wait for the response from axios before rendering the page
     return <div></div>         // returns an empty paragraph element
   }
 
   return (
     <div className="body">
-
       <div className = "spot_details">  {/* showing the spot details */}
         {<SpotDetail
           name={spot.spotName}
@@ -75,13 +74,6 @@ export default function Rooms() {
           {/*       Used to pass information to the next page
           <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>
           */}
-
-          <button
-              onClick={() => history.push('/')}
-              className="button"
-            >
-              {"<-- "}Go Back Home
-          </button>
         </footer>
         
       </div>

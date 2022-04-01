@@ -1,28 +1,48 @@
 .spot-details{
   padding-bottom: 40px;
 }
-.title{
-  margin: auto;
-  width: 50%;
-  text-align: center;
-  padding-bottom: 40px;
+
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
 }
 
-#visual{
-  width:50%;
-  float:left;
+#title, #home_but{
+  width: 48%;
 }
 
-img{
+#h_button{
   display: block;
   margin:auto;
 }
 
-#data{
-  width:50%;
-  float:left;
+#outline{
+  display: flex;
+  justify-content: space-between;
 }
 
-#clear{
-  clear:both;
+#visual, #data{
+  width:48%;
 }
+
+#loc_img{
+  width: 100%;
+  height: 284px;
+}
+
+ul{
+  list-style: none;
+  height: 100%;
+  display: table;
+  padding-left: 6%;
+}
+
+li{
+  font-size: 2em;
+  font-weight: bold;
+  display: table-row;
+}
+
+
+
