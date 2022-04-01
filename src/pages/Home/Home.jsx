@@ -108,6 +108,16 @@ export default function Home() {
           </div>
         )}
       </div>
+      
+      <div className="button-container">
+        <button
+          onClick={() => navigateToPage('/viewreviews')}
+          className="page-button"
+        >
+          Check Reviews Page -- Remove this button later
+        </button> 
+      </div>
+
     </div>
   );
 }
