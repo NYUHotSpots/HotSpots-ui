@@ -3,14 +3,11 @@ import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import SpotCard from "../../components/Card/Card";
 
+import "./home.css";
+
 import axios from "axios";
 
 export default function Home() {
-  //const [component] = useState("img");             Delete THIS if not in use
-  //const [height] = React.useState("140");
-  //const image = require('./images/nyu.jpg');
-  // const [path, setPath] = useState('/rooms')
-  //const history = useHistory();
 
   const [spots, setSpots] = useState(undefined);
   const [, setError] = useState(undefined);
@@ -49,10 +46,8 @@ export default function Home() {
   }, [refresh]);
 
   return (
-    <div className="content">
-      <div className="rooms-header">
-        {" "}
-        {/*Displays the title "Locations" and a back button */}
+    <body>
+      <div className="home_header">          {/*Displays the title "Locations" and a back button */}
         <h1>HotSpots</h1>
         {isAuthenticated ? (
           <button
@@ -76,15 +71,10 @@ export default function Home() {
           Tiffany Chan, Kevin Chen, Kevin Iza, Kathy Pan
         </p>
       </div>
+
       <div className="button-container">
-        {/* <button
-            onClick={() => navigateToPage('/rooms')}// todo change path
-            className="page-button"
-            >
-            View All Spots
-        </button> */}
         <button
-          onClick={() => navigateToPage("/createspot")} // todo change path
+          onClick={() => navigateToPage("/createspot")}
           className="page-button"
         >
           Add New Spot
@@ -109,7 +99,7 @@ export default function Home() {
         )}
       </div>
       
-      <div className="button-container">
+      <div className="button-container" >
         <button
           onClick={() => navigateToPage('/viewreviews')}
           className="page-button"
@@ -118,6 +108,6 @@ export default function Home() {
         </button> 
       </div>
 
-    </div>
+    </body>
   );
 }

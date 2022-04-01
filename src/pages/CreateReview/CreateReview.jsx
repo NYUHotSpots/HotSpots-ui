@@ -1,5 +1,5 @@
 //import React, {useEffect, useState} from 'react';
-import React, { useEffect, useState } from "react"; // htmlFor debugging, return to OG later
+import React, { useEffect, useState } from "react"; // html For debugging, return to OG later
 //import axios from 'axios';    // htmlFor debugging, uncomment later
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -9,15 +9,12 @@ import { useParams } from "react-router";
 import "./createreview.css";
 
 export default function CreateReview() {
-  //const [refresh, setRefresh] = useState(0);
-  //const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
 
   const history = useHistory();
-  //const [isLoading, setLoading] = useState(true);
   const [setError] = useState(undefined);
 
   const [spotName, setSpotName] = useState("Spot Name");
@@ -33,9 +30,7 @@ export default function CreateReview() {
       axios
         .get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
-          console.log(response.data);
-          // setSpot(response.data);
-          // setLoading(false);
+          console.log(response.data);  // Test value delete
 
           setSpotName(response.data.spotName);
           setSpotAddress(response.data.spotAddress);
@@ -82,7 +77,7 @@ export default function CreateReview() {
         );
 
         const { data } = response;
-        console.log(data);
+        console.log(data);      // ?? Delete log
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
       }
@@ -91,26 +86,68 @@ export default function CreateReview() {
     sendRequest(spotID, reviewTitle, reviewText, reviewRating);
   };
 
-  console.log("before return");
 
-  // const history = useHistory();
   return (
-    <div className="content">
-      {console.log("hi")}
-      <div className="createreview-header">
-        {" "}
-        {/*Displays the title "Locations" and a back button */}
+    <body>
+      <div className="createreview-header">       {/*Displays the title "Locations" and a back button */}
         <h1>Write a Review</h1>
-        <button onClick={() => history.push("/")} className="page-button">
-          {" "}
+
+        <button onClick={() => history.push("/")} className="page-button">     {/* Change button to be back button not back home*/}
           {"<-- "}Go Back Home{" "}
         </button>
       </div>
 
-      <h2>{spotName}</h2>
-      <h3>{spotAddress}</h3>
+      <div id ="spot_info">
+        <h1>{spotName}</h1>
+        <h2>{spotAddress}</h2>
+      </div>
 
-      {/* <div className="contents">
+      <div className="createreview-input">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            createReview(reviewTitle, reviewText, reviewRating);
+          }}
+        >
+          <div id ="rev_title">
+            <h2>Review Title: </h2>
+
+            <input
+              type="text"
+              name="Review Title"
+              placeholder="Great Location!"
+              onChange={(e) => setReviewTitle(e.target.value)}
+            />
+          </div>
+
+          <div id="rating">
+            <h2>Rating out of 5: </h2>
+
+            <input
+              type="number"
+              min="0"
+              max="5"
+              name="rating"
+              placeholder="5"
+              onChange={(e) => {
+                console.log(Number(e.target.value));          // Do we need??
+                setReviewRating(Number(e.target.value));
+              }}
+            />
+          </div>
+
+          <div id = "comments">
+            <h2>Comments: </h2>
+            
+            <textarea onChange={(e) => setReviewText(e.target.value)}></textarea>
+
+          </div>
+
+          <input className="submit-button" type="submit" value="Submit" />
+        </form>
+      </div>
+
+      {/* <div className="contents">                               ??? What does this do?
         <button onClick={() => createReview()} className="page-button">
           {" "}
           createReview() Button{" "}
@@ -142,49 +179,7 @@ export default function CreateReview() {
         onChange={(e) => setNewReviewName(e.target.value)}
       /> */}
 
-      <div className="createreview-input">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            createReview(reviewTitle, reviewText, reviewRating);
-          }}
-        >
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b>Review Title: </b>
-            </big>{" "}
-          </label>
-          <input
-            type="text"
-            name="Review Title"
-            placeholder="Great Location!"
-            onChange={(e) => setReviewTitle(e.target.value)}
-          />
-          <br></br>
-          <br></br>
-
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b>Rating out of 5: </b>
-            </big>{" "}
-          </label>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            name="rating"
-            placeholder="5"
-            onChange={(e) => {
-              console.log(Number(e.target.value));
-              setReviewRating(Number(e.target.value));
-            }}
-          />
-          <br></br>
-          <br></br>
-
-          {/* <p>
+      {/* <p>
             <strong>
               <big>Availability:</big>
             </strong>
@@ -273,21 +268,6 @@ export default function CreateReview() {
           <label htmlFor="html"> Busy</label>
           <br></br> */}
 
-          <br></br>
-          <br></br>
-          <label>
-            {" "}
-            <big>
-              <b>Comments: </b>
-            </big>{" "}
-          </label>
-          <textarea onChange={(e) => setReviewText(e.target.value)}></textarea>
-          <br></br>
-          <br></br>
-
-          <input className="submit-button" type="submit" value="Submit" />
-        </form>
-      </div>
-    </div> //Content div
+    </body> //Content div
   );
 }
