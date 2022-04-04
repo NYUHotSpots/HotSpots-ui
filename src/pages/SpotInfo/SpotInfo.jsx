@@ -79,7 +79,7 @@ export default function Rooms() {
       </div>
 
       <button
-        onClick={() => history.push('/updatespotinfo')}
+        onClick={() => history.push('/updatespotinfo/')}
         className="page-button"
         >
         Update Spot Details
@@ -88,7 +88,7 @@ export default function Rooms() {
       
       <div className="button-container" >
         <button
-          onClick={() => navigateToPage('/updatespotfactors')}
+          onClick={() => navigateToPage(`/updatespotfactors/${spotID}`)}
           className="page-button"
         >
           Update Spot Factors -- Still Testing

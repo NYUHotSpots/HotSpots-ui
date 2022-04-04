@@ -1,9 +1,11 @@
 //import React, {useEffect, useState} from 'react';
 //import React, { useState } from "react"; // for debugging, return to OG later
-import React, { } from "react"; // for debugging, return to OG later
-//import axios from 'axios';    // for debugging, uncomment later
+import React from "react"; // for debugging, return to OG later
+import axios from "axios"; // for debugging, uncomment later
 import { useHistory } from "react-router-dom";
 //import axios from "axios";
+import { useParams } from 'react-router';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import "./updatespotfactors.css";
 
@@ -15,22 +17,44 @@ export default function CreateReview() {
   //const [newReviewName] = useState("");
   const history = useHistory();
 
-  //const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+  const { getAccessTokenSilently } = useAuth0();
 
-  /*
-  const createReview = () => {
-    const sendRequest = async () => {
+  const { spotID } = useParams();
+
+  const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+
+  const updateSpotFactorReview = (
+    factorAvailability,
+    factorNoiseLevel,
+    factorTemperature,
+    factorAmbiance
+  ) => {
+    const sendRequest = async (
+      factorAvailability,
+      factorNoiseLevel,
+      factorTemperature,
+      factorAmbiance
+    ) => {
       try {
+        const accessToken = await getAccessTokenSilently();
+
+        const body = {
+          factorAvailability: factorAvailability,
+          factorNoiseLevel: factorNoiseLevel,
+          factorTemperature: factorTemperature,
+          factorAmbiance: factorAmbiance,
+        };
+
         const config = {
-          body: {
-            spotID: "",
-            reviewTitle: "",
-            reviewText: "",
-            reviewRating: "",
+          headers: {
+            "content-type": "application/x-www-form-urlencoded",
+            "Authorization": `Bearer ${accessToken}`,
           },
         };
-        const response = await axios.post(
-          `${apiServerUrl}/spot_review/create`,
+
+        const response = await axios.put(
+          `${apiServerUrl}/spot_factors/update/${spotID}`,
+          new URLSearchParams(body),
           config
         );
 
@@ -41,9 +65,20 @@ export default function CreateReview() {
       }
     };
 
-    sendRequest();
+    // console.log(
+    //   factorAvailability,
+    //   factorNoiseLevel,
+    //   factorTemperature,
+    //   factorAmbiance
+    // );
+
+    sendRequest(
+      factorAvailability,
+      factorNoiseLevel,
+      factorTemperature,
+      factorAmbiance
+    );
   };
-  */
 
   // const history = useHistory();
   return (
@@ -52,52 +87,151 @@ export default function CreateReview() {
         {" "}
         {/*Displays the title "Locations" and a back button */}
         <h1>Update the Spot Factors</h1>
-        <button onClick={() => history.push('/')} className="page-button"> {"<-- "}Go Back Home </button>
+        <button onClick={() => history.push("/")} className="page-button">
+          {" "}
+          {"<-- "}Go Back Home{" "}
+        </button>
       </div>
 
       <h2>Location Title</h2>
       <h3>Location Address</h3>
 
       <div className="createreview-input">
-        <form>
-          <p><strong><big>Availability:</big></strong></p>
-          <input type="radio" id="noAvail" name="availability" value="1"></input>
-          <label for="noAvail"> At capacity (No seats)</label><br></br>
-          <input type="radio" id="limitedAvail" name="availability" value="2"></input>
-          <label for="limitedAvail"> Crowded (limited seating)</label><br></br>
-          <input type="radio" id="someAvail" name="availability" value="3"></input>
-          <label for="someAvail"> Not too crowded (Some seats available)</label><br></br>
-          <input type="radio" id="manyAvail" name="availability" value="4"></input>
-          <label for="manyAvail"> Many seats</label><br></br><br></br>
-          
-          <p><strong><big>Noise Level:</big></strong></p>
-          <input type="radio" id="quiet" name="noise" value="1"></input>
-          <label for="html"> Quiet (silent / near silent)</label><br></br>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            // console.log(
+            //   document.querySelector('input[name="availability"]:checked').value
+            // );
+            // console.log(e);
+            // const elements = e.target.elements;
+            // console.log(elements.hello);
+            updateSpotFactorReview(
+              document.querySelector('input[name="availability"]:checked')
+                .value,
+              document.querySelector('input[name="noise"]:checked').value,
+              document.querySelector('input[name="temp"]:checked').value,
+              document.querySelector('input[name="ambi"]:checked').value
+            );
+          }}
+        >
+          <p>
+            <strong>
+              <big>Availability:</big>
+            </strong>
+          </p>
+          <input
+            type="radio"
+            id="noAvail"
+            name="availability"
+            value="1"
+            checked
+          ></input>
+          <label for="noAvail"> At capacity (No seats)</label>
+          <br></br>
+          <input
+            type="radio"
+            id="limitedAvail"
+            name="availability"
+            value="2"
+          ></input>
+          <label for="limitedAvail"> Crowded (limited seating)</label>
+          <br></br>
+          <input
+            type="radio"
+            id="someAvail"
+            name="availability"
+            value="3"
+          ></input>
+          <label for="someAvail"> Not too crowded (Some seats available)</label>
+          <br></br>
+          <input
+            type="radio"
+            id="manyAvail"
+            name="availability"
+            value="4"
+          ></input>
+          <label for="manyAvail"> Many seats</label>
+          <br></br>
+          <input
+            type="radio"
+            id="tooManyAvail"
+            name="availability"
+            value="5"
+          ></input>
+          <label for="manyAvail"> Too many seats free</label>
+          <br></br>
+          <br></br>
+
+          <p>
+            <strong>
+              <big>Noise Level:</big>
+            </strong>
+          </p>
+          <input type="radio" id="quiet" name="noise" value="1" checked></input>
+          <label for="html"> Quiet (silent / near silent)</label>
+          <br></br>
           <input type="radio" id="someNoise" name="noise" value="2"></input>
-          <label for="html"> Some noise (whispering to normal speech)</label><br></br>
+          <label for="html"> Some noise (whispering to normal speech)</label>
+          <br></br>
           <input type="radio" id="noise" name="noise" value="3"></input>
-          <label for="html"> Noisy (very loud)</label><br></br><br></br>
+          <label for="html"> Noisy (very loud)</label>
+          <br></br>
+          <input type="radio" id="noise" name="noise" value="4"></input>
+          <label for="html"> Unbearably loud</label>
+          <br></br>
+          <input type="radio" id="noise" name="noise" value="5"></input>
+          <label for="html"> Ruptured eardrum </label>
+          <br></br>
+          <br></br>
 
-          <p><strong><big>Temperature:</big></strong></p>
-          <input type="radio" id="cold" name="temp" value="1"></input>
-          <label for="html"> Cold / Chilly</label><br></br>
+          <p>
+            <strong>
+              <big>Temperature:</big>
+            </strong>
+          </p>
+          <input type="radio" id="cold" name="temp" value="1" checked></input>
+          <label for="html"> Cold / Chilly</label>
+          <br></br>
           <input type="radio" id="comfortable" name="temp" value="2"></input>
-          <label for="html"> Comfortable</label><br></br>
+          <label for="html"> Comfortable</label>
+          <br></br>
           <input type="radio" id="warm" name="temp" value="3"></input>
-          <label for="html"> Warm / Hot</label><br></br><br></br>
+          <label for="html"> Warm / Hot</label>
+          <br></br>
+          <input type="radio" id="warm" name="temp" value="4"></input>
+          <label for="html"> Flaming </label>
+          <br></br>
+          <input type="radio" id="warm" name="temp" value="5"></input>
+          <label for="html"> Burning </label>
+          <br></br>
+          <br></br>
 
-          <p><strong><big>Ambiance:</big></strong></p>
-          <input type="radio" id="calm" name="ambi" value="1"></input>
-          <label for="html"> Calm </label><br></br>
+          <p>
+            <strong>
+              <big>Ambiance:</big>
+            </strong>
+          </p>
+          <input type="radio" id="calm" name="ambi" value="1" checked></input>
+          <label for="html"> Chill </label>
+          <br></br>
           <input type="radio" id="busy" name="ambi" value="2"></input>
-          <label for="html"> Busy</label><br></br>
-
-          <br></br><br></br>
+          <label for="html"> Regular</label>
+          <br></br>
+          <input type="radio" id="busy" name="ambi" value="3"></input>
+          <label for="html"> Neutral</label>
+          <br></br>
+          <input type="radio" id="busy" name="ambi" value="4"></input>
+          <label for="html"> Busy</label>
+          <br></br>
+          <input type="radio" id="busy" name="ambi" value="5"></input>
+          <label for="html"> Serious/Business</label>
+          <br></br>
+          <br></br>
+          <br></br>
           <input className="submit-button" type="submit" value="Submit" />
         </form>
       </div>
-
-
     </div> //Content div
   );
 }

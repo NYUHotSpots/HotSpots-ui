@@ -50,7 +50,7 @@ function App() {
               <UpdateSpotInfo />
             </Route>
 
-            <Route exact={true} path={'/updatespotfactors'}>
+            <Route exact={true} path={'/updatespotfactors/:spotID'}>
               <UpdateSpotFactors />
             </Route>
 
