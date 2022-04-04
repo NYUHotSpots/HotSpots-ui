@@ -1,10 +1,10 @@
-//import React, {useEffect, useState} from 'react';
+import { useEffect, useState } from "react";
 //import React, { useState } from "react"; // for debugging, return to OG later
 import React from "react"; // for debugging, return to OG later
 import axios from "axios"; // for debugging, uncomment later
 import { useHistory } from "react-router-dom";
 //import axios from "axios";
-import { useParams } from 'react-router';
+import { useParams } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import "./updatespotfactors.css";
@@ -15,6 +15,8 @@ export default function CreateReview() {
 
   //const [newReviewName, setNewReviewName] = useState('');
   //const [newReviewName] = useState("");
+
+  const [spot, setSpot] = useState([]);
   const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
@@ -22,6 +24,24 @@ export default function CreateReview() {
   const { spotID } = useParams();
 
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+
+  useEffect(() => {
+    const getSpotDetails = () => {
+      axios
+        .get(`${apiServerUrl}/spots/${spotID}`)
+        .then((response) => {
+          console.log(response.data);
+          setSpot(response.data);
+          // setLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error caught", error);
+          // setError(error);
+        });
+    };
+
+    getSpotDetails();
+  }, []);
 
   const updateSpotFactorReview = (
     factorAvailability,
@@ -48,7 +68,7 @@ export default function CreateReview() {
         const config = {
           headers: {
             "content-type": "application/x-www-form-urlencoded",
-            "Authorization": `Bearer ${accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         };
 
@@ -93,8 +113,8 @@ export default function CreateReview() {
         </button>
       </div>
 
-      <h2>Location Title</h2>
-      <h3>Location Address</h3>
+      <h2>{spot.spotName}</h2>
+      <h3>{spot.spotAddress}</h3>
 
       <div className="createreview-input">
         <form
