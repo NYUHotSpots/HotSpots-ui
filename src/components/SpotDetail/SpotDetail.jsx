@@ -37,7 +37,7 @@ export default function SpotItem({name, image, address, capacity, availability, 
             <li>Availability: {availability.factorValue}</li>
             <li>Noise Level: {noise.factorValue}</li>
             <li>Ambience: {temp.factorValue}</li>
-            <li>Temperature: {availability.factorValue}</li>
+            <li>Temperature: {temp.factorValue}</li>
           </ul>
         </div>
       </div>
