@@ -26,7 +26,7 @@ export default function CheckReviews() {
 
   useEffect(() => {
     // still links to demo Rooms
-    axios.get(`${apiServerUrl}/spot_reviews/${spotID}`) // Got To change to our own herokuapp locations list
+    axios.get(`${apiServerUrl}/spot_review/read/${spotID}`) // Got To change to our own herokuapp locations list
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
         if (response.data){
@@ -37,7 +37,7 @@ export default function CheckReviews() {
         console.log(error);
         setError(error);
       });
-  })
+  }, [])
 
   return (
     <div className="content">

@@ -34,7 +34,7 @@ function App() {
               <CheckReviews />
             </Route>
 
-            <Route exact={true} path={'/viewreviews'}>
+            <Route exact={true} path={'/viewreviews/:spotID'}>
               <ViewReviews />
             </Route>
 
