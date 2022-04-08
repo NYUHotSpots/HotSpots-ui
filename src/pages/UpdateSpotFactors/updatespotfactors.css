@@ -5,16 +5,20 @@
   background-color: #EF4444;
 }
 
+#cr-header{
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
 body{
   width: 90%;
   margin:auto;
+  padding-bottom: 5%;
 }
   
 .createreview-header {
   display: flex;
   justify-content: space-between;
-  padding-top: 5%;
-  padding-bottom: 5%;
 }
 
 #spot_info{

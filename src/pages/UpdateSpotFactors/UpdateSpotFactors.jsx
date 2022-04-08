@@ -102,19 +102,22 @@ export default function CreateReview() {
 
   // const history = useHistory();
   return (
-    <div className="content">
-      <div className="createreview-header">
-        {" "}
-        {/*Displays the title "Locations" and a back button */}
-        <h1>Update the Spot Factors</h1>
-        <button onClick={() => history.push("/")} className="page-button">
-          {" "}
-          {"<-- "}Go Back Home{" "}
-        </button>
-      </div>
+    <body>
+      <div id = "cr-header">
+        <div className="createreview-header">       {/*Displays the title "Locations" and a back button */}
 
-      <h2>{spot.spotName}</h2>
-      <h3>{spot.spotAddress}</h3>
+          <h1>Update the Spot Factors</h1>
+
+          <button onClick={() => history.push("/")} className="page-button">
+            {"<-- "}Go Back Home{" "}
+          </button>
+
+        </div>
+
+        <h2>{spot.spotName}</h2>
+        <h3>{spot.spotAddress}</h3>
+
+      </div>
 
       <div className="createreview-input">
         <form
@@ -252,6 +255,6 @@ export default function CreateReview() {
           <input className="submit-button" type="submit" value="Submit" />
         </form>
       </div>
-    </div> //Content div
+    </body>
   );
 }
