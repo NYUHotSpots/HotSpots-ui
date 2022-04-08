@@ -99,6 +99,7 @@ export default function Home() {
         )}
       </div>
       
+      {/*
       <div className="button-container" >
         <button
           onClick={() => navigateToPage('/viewreviews')}
@@ -107,6 +108,7 @@ export default function Home() {
           Check Reviews Page -- Remove this button later
         </button> 
       </div>
+      */}
 
       {/*
       <div className="button-container" >

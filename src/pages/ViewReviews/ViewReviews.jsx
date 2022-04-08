@@ -40,8 +40,7 @@ export default function CheckReviews() {
   }, [])
 
   return (
-    <div className="content">
-
+    <body>
       <div className="checkreviews-header">  {/*Displays reviews and a back button (Not sure if its working)*/}
         <h1>Reviews</h1>
         <button
@@ -62,9 +61,9 @@ export default function CheckReviews() {
         {reviews ? reviews.map((room, index) => (
           
           <RoomItem
-            key={`${room.roomName}-${index}`}
+            //key={`${room.roomName}-${index}`}
             name={room.roomName}
-            userCount={room.num_users}
+            //userCount={room.num_users}
           />
           
 
@@ -84,7 +83,7 @@ export default function CheckReviews() {
         </button> 
       </div>
 
-    </div> /* END DIV */
+    </body> /* END DIV */
   )
 }
   

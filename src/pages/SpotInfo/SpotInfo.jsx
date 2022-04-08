@@ -94,6 +94,15 @@ export default function Rooms() {
           Update Spot Factors -- Still Testing
         </button> 
       </div>
+
+      <div className="button-container" >
+        <button
+          onClick={() => navigateToPage(`/spot_review/read/${spotID}`)}
+          className="page-button"
+        >
+          Check Reviews Page -- Remove this button later
+        </button> 
+      </div>
       
 
     </div> //body div
