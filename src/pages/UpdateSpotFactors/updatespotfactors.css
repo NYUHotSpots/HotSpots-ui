@@ -15,6 +15,12 @@ body{
   margin:auto;
   padding-bottom: 5%;
 }
+
+#sel{       /* sel is short for selector */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4%;
+}
   
 .createreview-header {
   display: flex;
