@@ -15,6 +15,9 @@ export default function CreateReview() {
 
   //const [newReviewName, setNewReviewName] = useState('');
   //const [newReviewName] = useState("");
+  function navigateToPage(path) {
+    history.push(path);
+  }
 
   const [spot, setSpot] = useState([]);
   const history = useHistory();
@@ -108,9 +111,14 @@ export default function CreateReview() {
 
           <h1>Update the Spot Factors</h1>
 
-          <button onClick={() => history.push("/")} className="page-button">
-            {"<-- "}Go Back Home{" "}
-          </button>
+          <div className="">     {/*Return Home button*/}
+            <button 
+              onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
+              className="page-button"
+            >
+              {"<--"}  Back
+            </button> 
+          </div>
 
         </div>
 
