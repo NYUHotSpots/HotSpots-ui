@@ -34,10 +34,10 @@ export default function SpotItem({name, image, address, capacity, availability, 
 
         <div id="data">
           <ul>
-            <li>Availability: {availability.factorValue}</li>
-            <li>Noise Level: {noise.factorValue}</li>
-            <li>Ambience: {ambi.factorValue}</li>
-            <li>Temperature: {temp.factorValue}</li>
+            <li>Availability: {availability}</li>
+            <li>Noise Level: {noise}</li>
+            <li>Ambience: {ambi}</li>
+            <li>Temperature: {temp}</li>
           </ul>
         </div>
       </div>
