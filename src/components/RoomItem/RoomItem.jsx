@@ -6,7 +6,8 @@ export default function RoomItem({name, userCount}) {
   return (
     <div className="room-item">
       <p> {name} </p>
-      <p> {userCount} </p>
+      
+      {/*<p> {userCount} </p>*/}
     </div>
   );
 }

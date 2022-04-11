@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 
 import { useParams } from 'react-router';
 
-import RoomItem from '../../components/RoomItem/RoomItem';
+import ReviewItem from '../../components/ReviewItem/ReviewItem';
 import './viewreviews.css';
 
 
@@ -13,6 +13,7 @@ export default function CheckReviews() {
     history.push(path);
   }
 
+  const [spot, setSpot] = useState([]);
   const { spotID } = useParams();
 
   const [reviews, setReviews] = useState(undefined);
@@ -24,9 +25,27 @@ export default function CheckReviews() {
   //const [isModalOpen, setIsModalOpen] = useState(false);
   const history = useHistory();
 
-  useEffect(() => {
-    // still links to demo Rooms
-    axios.get(`${apiServerUrl}/spot_review/read/${spotID}`) // Got To change to our own herokuapp locations list
+  useEffect(() => {     // gets SpotInfo
+    const getSpotDetails = () => {
+      axios
+        .get(`${apiServerUrl}/spots/${spotID}`)
+        .then((response) => {
+          console.log(response.data);
+          setSpot(response.data);
+          // setLoading(false);
+        })
+        .catch((error) => {
+          console.log("Error caught", error);
+          setError(error);
+        });
+    };
+
+    getSpotDetails();
+  }, [])
+
+
+  useEffect(() => {     // gets reviews info
+    axios.get(`${apiServerUrl}/spot_review/read/${spotID}`)
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
         if (response.data){
@@ -39,9 +58,10 @@ export default function CheckReviews() {
       });
   }, [])
 
-  return (
-    <div className="content">
 
+
+  return (
+    <body>
       <div className="checkreviews-header">  {/*Displays reviews and a back button (Not sure if its working)*/}
         <h1>Reviews</h1>
         <button
@@ -52,6 +72,10 @@ export default function CheckReviews() {
         </button>
       </div>
 
+      <h2>{spot.spotName}</h2>
+      <h3>{spot.spotAddress}</h3>
+      <br></br><br></br>
+
       {error && (
         <div className="checkreviews-error-box">
           <p>{error.toString()}</p>
@@ -61,10 +85,10 @@ export default function CheckReviews() {
       <div className="checkreviews-list">  {/*Gets the reviews from the demo23 (need to change) also handles when no reviews are found*/}
         {reviews ? reviews.map((room, index) => (
           
-          <RoomItem
-            key={`${room.roomName}-${index}`}
+          <ReviewItem
+            //key={`${room.roomName}-${index}`}
             name={room.roomName}
-            userCount={room.num_users}
+            //userCount={room.num_users}
           />
           
 
@@ -74,17 +98,18 @@ export default function CheckReviews() {
           </div>
         )}
       </div>
+      
 
-      <div className="checkreviews-header">     {/*A button to add a review*/}
+      <br></br><br></br>
+      <div className="checkreviews-header">     {/*Return Home button*/}
         <button 
-        onClick={() => navigateToPage('/')}
+        onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
         className="page-button"
         >
-          Return Home
+          {"<--"}  Back
         </button> 
       </div>
 
-    </div> /* END DIV */
+    </body> /* END DIV */
   )
 }
-  
