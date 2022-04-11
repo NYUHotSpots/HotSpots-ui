@@ -19,6 +19,8 @@ export default function CreateReview() {
   const [spot, setSpot] = useState([]);
   const history = useHistory();
 
+  const [spotFactorTypes, setSpotFactorTypes] = useState({});
+
   const { getAccessTokenSilently } = useAuth0();
 
   const { spotID } = useParams();
@@ -32,15 +34,27 @@ export default function CreateReview() {
         .then((response) => {
           console.log(response.data);
           setSpot(response.data);
-          // setLoading(false);
         })
         .catch((error) => {
           console.log("Error caught", error);
-          // setError(error);
+        });
+    };
+    const getSpotFactorTypes = () => {
+      axios
+        .get(`${apiServerUrl}/spot_factor_types/get`)
+        .then((response) => {
+          console.log(response.data);
+          setSpotFactorTypes(response.data);
+          // console.log(typeof response.data)
+          // console.log(spotFactorTypes.keys());
+        })
+        .catch((error) => {
+          console.log("Error caught", error);
         });
     };
 
     getSpotDetails();
+    getSpotFactorTypes();
   }, []);
 
   const updateSpotFactorReview = (
@@ -135,7 +149,90 @@ export default function CreateReview() {
             );
           }}
         >
-          <p>
+          {/* // Dynamic HATEOAS Factors */}
+          {spotFactorTypes
+            ? Object.keys(spotFactorTypes).map((factorType) => {
+                return (
+                  <>
+                    <p>
+                      <strong>
+                        <big>{spotFactorTypes[factorType].display_name}:</big>
+                      </strong>
+                    </p>
+
+                    {spotFactorTypes[factorType].pick_list.map(
+                      (tupleOption) => {
+                        return (
+                          <>
+                            <input
+                              type="radio"
+                              id={factorType + tupleOption[1]}
+                              name={factorType}
+                              value={tupleOption[1]}
+                              checked
+                            ></input>
+                            <label for="html"> {tupleOption[0]}</label>
+                            <br></br>
+                          </>
+                        );
+                      }
+                    )}
+
+                    {/* <input
+                      type="radio"
+                      id="quiet"
+                      name={factorType}
+                      value="1"
+                      checked
+                    ></input>
+                    <label for="html"> Quiet (silent / near silent)</label>
+                    <br></br>
+
+                    <input
+                      type="radio"
+                      id="someNoise"
+                      name={factorType}
+                      value="2"
+                    ></input>
+                    <label for="html">
+                      {" "}
+                      Some noise (whispering to normal speech)
+                    </label>
+                    <br></br>
+                    <input
+                      type="radio"
+                      id="noise"
+                      name={factorType}
+                      value="3"
+                    ></input>
+                    <label for="html"> Noisy (very loud)</label>
+                    <br></br>
+                    <input
+                      type="radio"
+                      id="noise"
+                      name={factorType}
+                      value="4"
+                    ></input>
+                    <label for="html"> Unbearably loud</label>
+                    <br></br>
+
+                    <input
+                      type="radio"
+                      id="noise"
+                      name={factorType}
+                      value="5"
+                    ></input>
+                    <label for="html"> Ruptured eardrum </label>
+                    <br></br> */}
+
+                    <br></br>
+                  </>
+                );
+              })
+            : null}
+
+          {/* // Hard Coded Factors */}
+          {/* <p>
             <strong>
               <big>Availability:</big>
             </strong>
@@ -248,6 +345,9 @@ export default function CreateReview() {
           <label for="html"> Serious/Business</label>
           <br></br>
           <br></br>
+          
+           */}
+           
           <br></br>
           <input className="submit-button" type="submit" value="Submit" />
         </form>
