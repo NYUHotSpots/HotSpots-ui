@@ -22,6 +22,8 @@ export default function CreateReview() {
   const [spot, setSpot] = useState([]);
   const history = useHistory();
 
+  const [spotFactorTypes, setSpotFactorTypes] = useState({});
+
   const { getAccessTokenSilently } = useAuth0();
 
   const { spotID } = useParams();
@@ -35,15 +37,27 @@ export default function CreateReview() {
         .then((response) => {
           console.log(response.data);
           setSpot(response.data);
-          // setLoading(false);
         })
         .catch((error) => {
           console.log("Error caught", error);
-          // setError(error);
+        });
+    };
+    const getSpotFactorTypes = () => {
+      axios
+        .get(`${apiServerUrl}/spot_factor_types/get`)
+        .then((response) => {
+          console.log(response.data);
+          setSpotFactorTypes(response.data);
+          // console.log(typeof response.data)
+          // console.log(spotFactorTypes.keys());
+        })
+        .catch((error) => {
+          console.log("Error caught", error);
         });
     };
 
     getSpotDetails();
+    getSpotFactorTypes();
   }, []);
 
   const updateSpotFactorReview = (
@@ -106,31 +120,31 @@ export default function CreateReview() {
   // const history = useHistory();
   return (
     <body>
-      <div id = "cr-header">
-        <div className="createreview-header">       {/*Displays the title "Locations" and a back button */}
-
+      <div id="cr-header">
+        <div className="createreview-header">
+          {" "}
+          {/*Displays the title "Locations" and a back button */}
           <h1>Update the Spot Factors</h1>
-
-          <div className="">     {/*Return Home button*/}
-            <button 
+          <div className="">
+            {" "}
+            {/*Return Home button*/}
+            <button
               onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
               className="page-button"
             >
-              {"<--"}  Back
-            </button> 
+              {"<--"} Back
+            </button>
           </div>
-
         </div>
 
         <h2>{spot.spotName}</h2>
         <h3>{spot.spotAddress}</h3>
-
       </div>
 
       <div className="createreview-input">
         <form
           onSubmit={(e) => {
-            e.preventDefault();  // prevents from submitting forms?? Do we need?
+            e.preventDefault(); // prevents from submitting forms?? Do we need?
             // console.log(
             //   document.querySelector('input[name="availability"]:checked').value
             // );
@@ -138,154 +152,45 @@ export default function CreateReview() {
             // const elements = e.target.elements;
             // console.log(elements.hello);
             updateSpotFactorReview(
-              document.querySelector('input[name="availability"]:checked').value,
+              document.querySelector('input[name="availability"]:checked')
+                .value,
               document.querySelector('input[name="noise"]:checked').value,
               document.querySelector('input[name="temp"]:checked').value,
               document.querySelector('input[name="ambi"]:checked').value
             );
           }}
         >
-          <div id = "sel">   {/* sel is short for selector */}
-            <h2>Availability:</h2>
+          {/* // Dynamic HATEOAS Factors */}
+          {spotFactorTypes
+            ? Object.keys(spotFactorTypes).map((factorType) => {
+                return (
+                  <>
+                    <div id="sel">
+                      <h2>{spotFactorTypes[factorType].display_name}:</h2>
 
-            <div>
-              <input
-                type="radio"
-                id="noAvail"
-                name="availability"
-                value="1"
-              ></input>
-              <label for="noAvail"> At capacity (No seats)</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="limitedAvail"
-                name="availability"
-                value="2"
-              ></input>
-              <label for="limitedAvail"> Crowded (limited seating)</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="someAvail"
-                name="availability"
-                value="3"
-              ></input>
-              <label for="someAvail"> Not too crowded (Some seats available)</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="manyAvail"
-                name="availability"
-                value="4"
-              ></input>
-              <label for="manyAvail"> Many seats</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="tooManyAvail"
-                name="availability"
-                value="5"
-              ></input>
-              <label for="manyAvail"> Too many seats free</label>
-            </div>
-          </div>
-
-          <div id = "sel">
-            <h2>Noise Level:</h2>
-
-            <div>
-              <input type="radio" id="quiet" name="noise" value="1"></input>
-              <label for="html"> Quiet (silent / near silent)</label>
-            </div>
-
-            <div>
-              <input type="radio" id="someNoise" name="noise" value="2"></input>
-              <label for="html"> Some noise (whispering to normal speech)</label>
-            </div>
-
-            <div>
-              <input type="radio" id="noise" name="noise" value="3"></input>
-              <label for="html"> Noisy (very loud)</label>
-            </div>
-
-            <div>
-              <input type="radio" id="noise" name="noise" value="4"></input>
-              <label for="html"> Unbearably loud</label>
-            </div>
-
-            <div>
-              <input type="radio" id="noise" name="noise" value="5"></input>
-              <label for="html"> Ruptured eardrum </label>
-            </div>
-          </div>
-
-          <div id = "sel">
-
-            <h2>Temperature:</h2>
-              <div>
-                <input type="radio" id="cold" name="temp" value="1"></input>
-                <label for="html"> Cold / Chilly</label>
-              </div>
-
-              <div>
-                <input type="radio" id="comfortable" name="temp" value="2"></input>
-                <label for="html"> Comfortable</label>
-              </div>
-
-              <div>
-                <input type="radio" id="warm" name="temp" value="3"></input>
-                <label for="html"> Warm / Hot</label>
-              </div>
-
-              <div>
-                <input type="radio" id="warm" name="temp" value="4"></input>
-                <label for="html"> Flaming </label>
-              </div>
-
-              <div>
-                <input type="radio" id="warm" name="temp" value="5"></input>
-                <label for="html"> Burning </label>
-              </div>
-          </div>
-
-          <div id = "sel"> 
-
-            <h2>Ambiance:</h2>
-
-            <div>
-              <input type="radio" id="calm" name="ambi" value="1"></input>
-              <label for="html"> Chill </label>
-            </div>
-
-            <div>
-              <input type="radio" id="busy" name="ambi" value="2"></input>
-              <label for="html"> Regular</label>
-            </div>
-
-            <div>
-              <input type="radio" id="busy" name="ambi" value="3"></input>
-              <label for="html"> Neutral</label>
-            </div>
-
-            <div>
-              <input type="radio" id="busy" name="ambi" value="4"></input>
-              <label for="html"> Busy</label>
-            </div>
-
-            <div>
-              <input type="radio" id="busy" name="ambi" value="5"></input>
-              <label for="html"> Serious/Business</label>
-            </div>
-          </div>
+                      {spotFactorTypes[factorType].pick_list.map(
+                        (tupleOption) => {
+                          return (
+                            <div>
+                              <input
+                                type="radio"
+                                id={factorType + tupleOption[1]}
+                                name={factorType}
+                                value={tupleOption[1]}
+                                checked
+                              ></input>
+                              <label for={factorType + tupleOption[1]}>
+                                {tupleOption[0]}
+                              </label>
+                            </div>
+                          );
+                        }
+                      )}
+                    </div>
+                  </>
+                );
+              })
+            : null}
           <input className="submit-button" type="submit" value="Submit" />
         </form>
       </div>
