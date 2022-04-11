@@ -26,21 +26,19 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`${apiServerUrl}/spots/list`) // Gets the spots from our api
-      .then((response) => {
-        //Waits for the response of the .get, once it gets the values it does below
+      .get(`${apiServerUrl}/spots/list`)      // Gets the spots from our api
+      .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
-        console.log("getting values"); // Remove later, testing
+        //console.log("getting values");      // Remove later, testing
         if (response.data) {
-          console.log("api sent data"); // Remove later, testing
+          //console.log("api sent data");     // Remove later, testing
           setSpots(response.data);
         }
-        console.log("At the end"); // Remove later, testing
+        //console.log("At the end"); // Remove later, testing
       })
-      .catch((error) => {
-        //If an error is thrown this catch puts up a warning instead
+      .catch((error) => {     //If an error is thrown this catch puts up a warning instead
         console.log(error);
-        console.log("You didnt get the value RIPS"); // Remove later, testing
+        //console.log("You didnt get the value RIPS"); // Remove later, testing
         setError(error);
       });
   }, [refresh]);
@@ -80,7 +78,8 @@ export default function Home() {
           Add New Spot
         </button>
       </div>
-
+      {console.log(spots)}
+      
       <div className="grid-container"> 
         {spots ? spots.map((spot) => (
           <div key={spot["_id"]["$oid"]} className="grid-item" onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}>

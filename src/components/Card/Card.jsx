@@ -13,8 +13,9 @@ export default function SpotCard({component,height,image,hpath, name, address}){
 
                 <CardMedia
                     component="img"
-                    height= "200"
+                    height="200px"
                     image={image}
+                    alt= "location"
                 />
 
                 <CardContent>
