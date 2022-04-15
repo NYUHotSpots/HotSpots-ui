@@ -63,7 +63,7 @@ export default function CheckReviews() {
 
 
   return (
-    <div>
+    <div id = "crBody">
       <div className="checkreviews-header">  {/*Displays reviews and a back button (Not sure if its working)*/}
         <h1>Reviews</h1>
         <button
@@ -74,17 +74,17 @@ export default function CheckReviews() {
         </button>
       </div>
 
-      <h2>{spot.spotName}</h2>
-      <h3>{spot.spotAddress}</h3>
-      <br></br><br></br>
-
+      <div id = "spotinfo">
+        <h2>{spot.spotName}</h2>
+        <h3>{spot.spotAddress}</h3>
+      </div>
       {error && (
         <div className="checkreviews-error-box">
           <p>{error.toString()}</p>
         </div>
       )}
 
-      <div className="checkreviews-list">  {/*Gets the reviews from the demo23 (need to change) also handles when no reviews are found*/}
+      <div id="reviewsList">  {/*Gets the reviews from the demo23 (need to change) also handles when no reviews are found*/}
         {reviews ? reviews.map((review) => (
           console.log(review.reviewText),
           <ReviewItem
@@ -102,9 +102,7 @@ export default function CheckReviews() {
         )}
       </div>
       
-
-      <br></br><br></br>
-      <div className="checkreviews-header">     {/*Return Home button*/}
+      <div className="crFooter">     {/*Return Home button*/}
         <button 
         onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
         className="page-button"

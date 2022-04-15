@@ -65,3 +65,15 @@ footer{
   display: flex;
   justify-content: space-between;
 }
+
+#testButtons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+#adminOnly{
+  background-color: red;
+  color: white;
+}

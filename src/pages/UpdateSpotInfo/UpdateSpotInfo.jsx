@@ -58,14 +58,8 @@ export default function CreateSpot() {
       <div className="rooms-header">
         <h1>Update Spot</h1>
         <button onClick={() => history.push("/")} className="page-button">
-          {" "}
-          {"<-- "}Go Back Home{" "}
+          {"<-- "}Go Back Home
         </button>
-
-        {/* <button onClick={() => createSpot()} className="page-button"> createSpot() Button </button>  */}
-        {/* don't know why button is clicking back to this page, is here to remove warning error
-        I assume this is the submit button?
-        */}
       </div>
 
       <div className="instructions">

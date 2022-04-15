@@ -77,33 +77,32 @@ export default function Rooms() {
         </footer>
         
       </div>
-
-      <button
-        onClick={() => history.push('/updatespotinfo/')}
-        className="page-button"
-        >
-        Update Spot Details
-      </button>
       
-      
-      <div className="button-container" >
-        <button
-          onClick={() => navigateToPage(`/updatespotfactors/${spotID}`)}
-          className="page-button"
-        >
-          Update Spot Factors -- Still Testing
-        </button> 
-      </div>
+      <div id = "testButtons">
 
-      <div className="button-container" >
         <button
           onClick={() => navigateToPage(`/spot_review/read/${spotID}`)}
           className="page-button"
         >
           Check Reviews Page -- Remove this button later
         </button> 
-      </div>
+        
+        <button
+          onClick={() => history.push('/updatespotinfo/')}
+          className="page-button" id = "adminOnly"
+          >
+          Update Spot Details
+        </button>
+        
       
+        <button
+          onClick={() => navigateToPage(`/updatespotfactors/${spotID}`)}
+          className="page-button" id = "adminOnly"
+        >
+          Update Spot Factors -- Still Testing
+        </button> 
+
+      </div>
 
     </div> //body div
   )
