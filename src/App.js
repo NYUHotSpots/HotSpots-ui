@@ -13,6 +13,8 @@ import UpdateSpotFactors from './pages/UpdateSpotFactors/UpdateSpotFactors';
 
 import CreateSpot from './pages/CreateSpot/CreateSpot';
 
+import SubmissionSuccess from './pages/SubmissionSuccess/SubmissionSuccess';
+
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Profile from './pages/Authentication/Profile';
 
@@ -52,6 +54,10 @@ function App() {
 
             <Route exact={true} path={'/updatespotfactors/:spotID'}>
               <UpdateSpotFactors />
+            </Route>
+
+            <Route exact={true} path={'/submissionsuccess'}>
+              <SubmissionSuccess />
             </Route>
 
             <ProtectedRoute path="/profile" component={Profile} />

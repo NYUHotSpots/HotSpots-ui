@@ -98,27 +98,16 @@ export default function Home() {
         )}
       </div>
       
-      {/*
+      {
       <div className="button-container" >
         <button
-          onClick={() => navigateToPage('/viewreviews')}
+          onClick={() => navigateToPage('/submissionsuccess')}
           className="page-button"
         >
-          Check Reviews Page -- Remove this button later
+          Sample Submission Success
         </button> 
       </div>
-      */}
-
-      {/*
-      <div className="button-container" >
-        <button
-          onClick={() => navigateToPage('/updatespotfactors')}
-          className="page-button"
-        >
-          Update Spot Factors -- Still Testing
-        </button> 
-      </div>
-      */}
+      }
 
     </body>
   );
