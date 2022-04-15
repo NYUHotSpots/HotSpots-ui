@@ -2,12 +2,13 @@ import React from 'react';
 
 import './reviewitem.css';
 
-export default function ReviewItem({spotName, spotAddress}) {
+export default function ReviewItem({title, dt, rating, text}) {   // dt is short for date and time
   return (
-    <div className="room-item">
-      <p> {spotName} </p>
-      
-      {/*<p> {userCount} </p>*/}
+    <div id = "reviewItem">
+      <h4>{title}</h4>
+      <p>{dt}</p>
+      <p>{rating}</p>
+      <p>{text}</p>
     </div>
   );
 }

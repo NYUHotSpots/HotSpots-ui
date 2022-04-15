@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 
 import { useParams } from 'react-router';
 
-import ReviewItem from '../../components/ReviewItem/ReviewItem';
+import ReviewItem from '../../components/ReviewItem/ReviewItem.jsx';
 import './viewreviews.css';
 
 
@@ -30,6 +30,7 @@ export default function CheckReviews() {
       axios
         .get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
+          console.log("SpotInfo:");
           console.log(response.data);
           setSpot(response.data);
           // setLoading(false);
@@ -47,6 +48,7 @@ export default function CheckReviews() {
   useEffect(() => {     // gets reviews info
     axios.get(`${apiServerUrl}/spot_review/read/${spotID}`)
       .then((response) => {     //Waits for the response of the .get, once it gets the values it does below
+        console.log("Review:");
         console.log(response.data);
         if (response.data){
           setReviews(response.data);
@@ -61,7 +63,7 @@ export default function CheckReviews() {
 
 
   return (
-    <body>
+    <div>
       <div className="checkreviews-header">  {/*Displays reviews and a back button (Not sure if its working)*/}
         <h1>Reviews</h1>
         <button
@@ -83,12 +85,13 @@ export default function CheckReviews() {
       )}
 
       <div className="checkreviews-list">  {/*Gets the reviews from the demo23 (need to change) also handles when no reviews are found*/}
-        {reviews ? reviews.map((room, index) => (
-          
+        {reviews ? reviews.map((review) => (
+          console.log(review.reviewText),
           <ReviewItem
-            //key={`${room.roomName}-${index}`}
-            name={room.roomName}
-            //userCount={room.num_users}
+            title = {review.reviewTitle}
+            dt = {review.reviewCreation}
+            rating = {review.reviewRating}
+            text = {review.reviewText}
           />
           
 
@@ -110,6 +113,6 @@ export default function CheckReviews() {
         </button> 
       </div>
 
-    </body> /* END DIV */
+    </div> /* END DIV */
   )
 }
