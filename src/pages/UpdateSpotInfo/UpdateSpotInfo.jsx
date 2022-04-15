@@ -63,9 +63,9 @@ export default function CreateSpot() {
       </div>
 
       <div className="instructions">
-          <p style={{color:"red"}}><b>Instructions:</b></p>
-          <p>All input boxes must be filled out.<br></br>
-            If there is a category that you do not want to change, fill the input box with the original content. 
+          <h3 className="instr-subheader">Instructions:</h3>
+          <p>All input boxes must be filled out.</p>
+          <p>If there is a category that you do not want to change, fill the input box with the original content. 
           </p>
       </div>
 
@@ -76,62 +76,43 @@ export default function CreateSpot() {
             e.preventDefault();
             const elements = e.target.elements;
             createSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
-            // console.log(e.target.elements.spotAddress.value);
-            // console.log(e.target.elements.username.value); // from elements property
-            // console.log(e.target.username.value); // or directly
           }}
         >
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b> Update Spot / Location Name: </b>
-            </big>{" "}
+          <label className="input-sections">
+            <h3> Update Spot / Location Name: </h3>
           </label>
-          <input type="text" name="spotName" placeholder="NYU Makerspace" />
-          <br></br>
-          <br></br>
+          <input type="text" name="spotName" placeholder="NYU Makerspace" id="input-text"/>
 
           <label className="item-styling">
-            {" "}
-            <big>
-              <b>Update Address: </b>
-            </big>{" "}
+            <h3 id="input-subtitle">Update Address: </h3>
           </label>
           <input
             type="text"
             name="spotAddress"
             placeholder="6 MetroTech Center"
           />
-          <br></br>
-          <br></br>
 
           <label className="item-styling">
-            {" "}
-            <big>
-              <b>Update Capacity: </b>
-            </big>{" "}
+            <h3 id="input-subtitle">Update Capacity: </h3>
           </label>
           <input type="text" name="spotCapacity" placeholder="100" />
-          <br></br>
-          <br></br>
 
           <label className="item-styling">
-            {" "}
-            <big>
-              <b>Update Image Link: </b>
-            </big>{" "}
+            <h3 id="input-subtitle">Update Image Link: </h3>
           </label>
           <input
             type="text"
             name="spotImage"
             placeholder="https://example.com/"
           />
-          <br></br>
-          <br></br>
 
+
+
+          {/* edit CSS to input padding above button */}
           <input className="submit-button" type="submit" value="Submit Changes" />
-        </form>
+          
+        </form> {/* END FORM */}
       </div>
-    </div>
+    </div> // END DIV
   );
 }

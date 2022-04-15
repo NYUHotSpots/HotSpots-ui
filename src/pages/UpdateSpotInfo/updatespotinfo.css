@@ -1,26 +1,26 @@
 input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
 .submit-button {
-    min-width: 100px;
-    max-width: 500px;
-    border: 1px solid #4CAF50;
-    background-color: #4CAF50;
-    color: white;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 5px;
+  min-width: 100px;
+  max-width: 500px;
+  border: 1px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 input[type=submit]:hover {
@@ -29,4 +29,12 @@ input[type=submit]:hover {
 
 .rooms-header{
   padding-top: 5%;
+}
+
+#input-subtitle{
+  padding-top: 3%;
+}
+
+.instr-subheader{
+  color: red;
 }

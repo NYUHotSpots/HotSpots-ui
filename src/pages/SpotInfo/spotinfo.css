@@ -74,6 +74,13 @@ footer{
 }
 
 #adminOnly{
+  border: 1px solid rgb(255, 208, 0);
+  background-color:yellow;
+  
+}
+
+#adminOnlyDelete{
+  border: 1px solid #d30000;
   background-color: red;
   color: white;
 }

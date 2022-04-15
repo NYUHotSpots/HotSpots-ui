@@ -93,7 +93,17 @@ export default function Rooms() {
           onClick={() => navigateToPage(`/updatespotfactors/${spotID}`)}
           className="page-button" id = "adminOnly"
         >
-          Update Spot Factors -- Still Testing
+          Update Spot Factors
+        </button> 
+        
+
+        {/* Button to DELETE SPOT -- does API have it delete reviews, factors, etc? */}
+        {/* Curr navigates to UpdateSpotFactors */}
+        <button
+          onClick={() => navigateToPage(`/updatespotfactors/${spotID}`)}
+          className="page-button" id = "adminOnlyDelete"
+        >
+          Delete This Spot
         </button> 
 
       </div>
