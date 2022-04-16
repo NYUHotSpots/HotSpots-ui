@@ -88,6 +88,9 @@ export default function CreateReview() {
 
         const { data } = response;
         console.log(data);
+        if (response.status === 200) {
+          history.push('/submissionsuccess')
+        }
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
       }
