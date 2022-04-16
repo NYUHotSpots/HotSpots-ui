@@ -10,15 +10,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "./updatespotfactors.css";
 
 export default function CreateReview() {
-  //const [refresh, setRefresh] = useState(0);
-  //const [isModalOpen, setIsModalOpen] = useState(false);
-
-  //const [newReviewName, setNewReviewName] = useState('');
-  //const [newReviewName] = useState("");
-  function navigateToPage(path) {
-    history.push(path);
-  }
-
   const [spot, setSpot] = useState([]);
   const history = useHistory();
 
@@ -128,11 +119,8 @@ export default function CreateReview() {
           <div className="">
             {" "}
             {/*Return Home button*/}
-            <button
-              onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
-              className="page-button"
-            >
-              {"<--"} Back
+            <button onClick={() => history.goBack()} className="page-button">
+            {"<-- "}Go Back{" "}
             </button>
           </div>
         </div>

@@ -92,8 +92,8 @@ export default function CreateReview() {
       <div className="createreview-header">       {/*Displays the title "Locations" and a back button */}
         <h1>Write a Review</h1>
 
-        <button onClick={() => history.push("/")} className="page-button">     {/* Change button to be back button not back home*/}
-          {"<-- "}Go Back Home{" "}
+        <button onClick={() => history.goBack()} className="page-button">
+          {"<-- "}Go Back{" "}
         </button>
       </div>
 

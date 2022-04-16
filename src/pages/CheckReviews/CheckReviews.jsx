@@ -40,11 +40,8 @@ export default function CheckReviews() {
 
       <div className="checkreviews-header">  {/*Displays reviews and a back button (Not sure if its working)*/}
         <h1>Reviews</h1>
-        <button
-          onClick={() => history.push('/')}
-          className="button"
-        >
-          {"<--"}Go Back Home
+        <button onClick={() => history.goBack()} className="page-button">
+          {"<-- "}Go Back{" "}
         </button>
       </div>
 
