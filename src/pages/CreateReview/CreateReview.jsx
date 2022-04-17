@@ -1,6 +1,8 @@
 //import React, {useEffect, useState} from 'react';
 import React, { useEffect, useState } from "react"; // html For debugging, return to OG later
 //import axios from 'axios';    // htmlFor debugging, uncomment later
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,7 +17,7 @@ export default function CreateReview() {
   const [reviewRating, setReviewRating] = useState(0);
 
   const history = useHistory();
-  const [setError] = useState(undefined);
+  const [error, setError] = useState(false);
 
   const [spotName, setSpotName] = useState("Spot Name");
   const [spotAddress, setSpotAddress] = useState("Spot Address");
@@ -84,6 +86,7 @@ export default function CreateReview() {
         }
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
+        setError(e.message)
       }
     };
 
@@ -100,7 +103,8 @@ export default function CreateReview() {
           {"<-- "}Go Back{" "}
         </button>
       </div>
-
+      {error ? <Alert severity="error">{error}</Alert> : null }
+          
       <div id ="spot_info">
         <h1>{spotName}</h1>
         <h2>{spotAddress}</h2>
@@ -146,8 +150,9 @@ export default function CreateReview() {
             <textarea onChange={(e) => setReviewText(e.target.value)}></textarea>
 
           </div>
-
+          
           <input className="submit-button" type="submit" value="Submit" />
+          
         </form>
       </div>
 

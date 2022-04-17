@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 import "./createspot.css";
 
@@ -9,6 +11,7 @@ export default function CreateSpot() {
   const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
+  const [error, setError] = useState(false);
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
   // function navigateToPage(path) {
@@ -49,7 +52,9 @@ export default function CreateSpot() {
           history.push('/submissionsuccess')
         }
       } catch (e) {
-        console.log(JSON.stringify(e.message, null, 2));
+        console.log(e)
+        console.log(e.message);
+        setError(e.message)
       }
     };
 
@@ -64,7 +69,8 @@ export default function CreateSpot() {
           {"<-- "}Go Back Home
         </button>
       </div>
-
+      
+      {error ? <Alert severity="error">{error}</Alert> : null }
       <div className="contents">
         <form
           onSubmit={(e) => {
