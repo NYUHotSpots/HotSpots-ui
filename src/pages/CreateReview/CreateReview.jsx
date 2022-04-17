@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react"; // html For debugging, return to OG later
 //import axios from 'axios';    // htmlFor debugging, uncomment later
 import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
