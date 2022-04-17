@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import SpotDetail from '../../components/SpotDetail/SpotDetail';
 
@@ -20,8 +21,29 @@ export default function Rooms() {
   //const [newRoomName, setNewRoomName] = useState('');
 
   const history = useHistory();
-
+  const { getAccessTokenSilently } = useAuth0();
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
+  const deleteSpot = async () => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      console.log(accessToken);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      };
+      console.log(spotID)
+      const response = await axios.delete(`${apiServerUrl}/spots/delete/${spotID}`, config)
+      const { data } = response; 
+      console.log(data);
+
+      if(response.status === 200){
+        history.push('/')
+      }
+    } catch (e) {
+      console.log(JSON.stringify(e.message, null, 2));
+    }
+  };
 
   function navigateToPage(path) {
     history.push(path);
@@ -100,7 +122,7 @@ export default function Rooms() {
         {/* Button to DELETE SPOT -- does API have it delete reviews, factors, etc? */}
         {/* Curr navigates to UpdateSpotFactors */}
         <button
-          onClick={() => navigateToPage(`/updatespotfactors/${spotID}`)}
+          onClick={() => deleteSpot()}
           className="page-button" id = "adminOnlyDelete"
         >
           Delete This Spot
