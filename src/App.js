@@ -32,6 +32,7 @@ function App() {
               <SpotInfo />
             </Route>
 
+
             <Route exact={true} path={'/CheckReviews'}>
               <CheckReviews />
             </Route>
@@ -44,9 +45,10 @@ function App() {
               <CreateReview />
             </Route>
 
-            <Route exact={true} path={'/createspot'}>
+            {/* <Route exact={true} path={'/createspot'}>
               <CreateSpot />
-            </Route>
+            </Route> */}
+            <ProtectedRoute path="/createspot" component={CreateSpot} />
 
             <Route exact={true} path={'/updatespotinfo'}>
               <UpdateSpotInfo />
