@@ -12,14 +12,10 @@ import { useJwt } from "react-jwt";
 
 export default function Rooms() {
   const [spot, setSpot] = useState([]);
-  //const [setError] = useState(undefined);
+
   const [setError] = useState(undefined);
 
-  //const [refresh, setRefresh] = useState(undefined);
   const [isLoading, setLoading] = useState(true);
-
-  //const [isModalOpen, setIsModalOpen] = useState(false);
-  //const [newRoomName, setNewRoomName] = useState('');
 
   const [accessToken, setAccessToken] = useState("");
   const { decodedToken, isExpired } = useJwt(accessToken);
@@ -90,14 +86,12 @@ export default function Rooms() {
 
   if (isLoading) {
     // A way to wait for the response from axios before rendering the page
-    return <div></div>; // returns an empty paragraph element
+    return <div></div>; // returns an empty div
   }
 
   return (
     <div className="body">
-      <div className="spot_details">
-        {" "}
-        {/* showing the spot details */}
+      <div className="spot_details">      {/* showing the spot details */}
         {
           <SpotDetail
             name={spot.spotName}

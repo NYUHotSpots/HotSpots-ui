@@ -43,31 +43,24 @@ export default function Home() {
     // console.log(decodedToken.permissions.indexOf("admin:full-access"));
 
     axios
-      .get(`${apiServerUrl}/spots/list`) // Gets the spots from our api
-      .then((response) => {
-        //Waits for the response of the .get, once it gets the values it does below
+      .get(`${apiServerUrl}/spots/list`)      // Gets the spots from our api
+      .then((response) => {       //Waits for the response of the .get, once it gets the values it does below
         console.log(response.data);
-        //console.log("getting values");      // Remove later, testing
         if (response.data) {
-          //console.log("api sent data");     // Remove later, testing
           setSpots(response.data);
         }
-        //console.log("At the end"); // Remove later, testing
       })
-      .catch((error) => {
-        //If an error is thrown this catch puts up a warning instead
+      .catch((error) => {     //If an error is thrown this catch puts up a warning instead
         console.log(error);
-        //console.log("You didnt get the value RIPS"); // Remove later, testing
         setError(error);
       });
   }, [accessToken]);
 
   return (
     <body>
-      <div className="home_header">
-        {" "}
-        {/*Displays the title "Locations" and a back button */}
+      <div className="home_header">     {/*Displays the title "Locations" and a back button */}
         <h1>HotSpots</h1>
+
         {isAuthenticated ? (
           <button
             className="page-button"

@@ -7,6 +7,8 @@ import './spotdetail.css';
 export default function SpotItem({name, image, address, capacity, availability, noise, temp, ambi, reviews}) {
   const history = useHistory();
 
+  console.log(availability);
+
   return (
     <div className="spot-details">
 
