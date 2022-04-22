@@ -43,7 +43,7 @@ export default function CreateSpot() {        // Update function name
 
         const response = await axios.put(
           `${apiServerUrl}/spots/update/${spotID}`,
-          body,
+          new URLSearchParams(body),
           config
         );
 
