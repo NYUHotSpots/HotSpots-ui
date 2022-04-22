@@ -41,7 +41,7 @@ export default function CreateSpot() {        // Update function name
           }
         };
 
-        const response = await axios.post(
+        const response = await axios.put(
           `${apiServerUrl}/spots/update/${spotID}`,
           body,
           config
