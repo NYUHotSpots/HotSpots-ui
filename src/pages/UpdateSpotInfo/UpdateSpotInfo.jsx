@@ -53,7 +53,7 @@ export default function CreateSpot() {        // Update function name
         if(response.status === 200){
           history.push('/submissionsuccess')
         }
-        
+
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
       }
@@ -114,7 +114,7 @@ export default function CreateSpot() {        // Update function name
           />
 
           {/* edit CSS to input padding above button */}
-          <input className="submit-button" type="submit" value="Submit Changes" />
+          <input className="submit-button" type="submit" value="Submit"/>
           
         </form> {/* END FORM */}
       </div>
