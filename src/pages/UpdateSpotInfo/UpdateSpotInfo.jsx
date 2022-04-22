@@ -85,35 +85,36 @@ export default function CreateSpot() {        // Update function name
             updateSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
           }}
         >
-          <label className="input-sections">
-            <h3> Update Spot / Location Name: </h3>
-          </label>
-          <input type="text" name="spotName" placeholder="NYU Makerspace" id="input-text"/>
+          <div id="userInputs">
+            <label className="input-sections">
+              <h3> Update Spot / Location Name: </h3>
+            </label>
+            <input type="text" name="spotName" placeholder="NYU Makerspace" id="input-text"/>
 
-          <label className="item-styling">
-            <h3 id="input-subtitle">Update Address: </h3>
-          </label>
-          <input
-            type="text"
-            name="spotAddress"
-            placeholder="6 MetroTech Center"
-          />
+            <label className="item-styling">
+              <h3 id="input-subtitle">Update Address: </h3>
+            </label>
+            <input
+              type="text"
+              name="spotAddress"
+              placeholder="6 MetroTech Center"
+            />
 
-          <label className="item-styling">
-            <h3 id="input-subtitle">Update Capacity: </h3>
-          </label>
-          <input type="text" name="spotCapacity" placeholder="100" />
+            <label className="item-styling">
+              <h3 id="input-subtitle">Update Capacity: </h3>
+            </label>
+            <input type="text" name="spotCapacity" placeholder="100" />
 
-          <label className="item-styling">
-            <h3 id="input-subtitle">Update Image Link: </h3>
-          </label>
-          <input
-            type="text"
-            name="spotImage"
-            placeholder="https://example.com/"
-          />
-
-          {/* edit CSS to input padding above button */}
+            <label className="item-styling">
+              <h3 id="input-subtitle">Update Image Link: </h3>
+            </label>
+            <input
+              type="text"
+              name="spotImage"
+              placeholder="https://example.com/"
+            />
+          </div>
+          
           <input className="submit-button" type="submit" value="Submit"/>
           
         </form> {/* END FORM */}

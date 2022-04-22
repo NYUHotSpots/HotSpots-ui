@@ -121,16 +121,6 @@ export default function Home() {
         )}
       </div>
 
-      {
-        <div className="button-container">
-          <button
-            onClick={() => navigateToPage("/submissionsuccess")}
-            className="page-button"
-          >
-            Sample Submission Success
-          </button>
-        </div>
-      }
-    </body>
+    </body>   // END
   );
 }

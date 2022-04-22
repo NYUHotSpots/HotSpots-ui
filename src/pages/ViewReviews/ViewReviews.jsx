@@ -20,9 +20,6 @@ export default function CheckReviews() {
   const [error, setError] = useState(undefined);
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
-  //const [refresh, setRefresh] = useState(0);
-  // const [refresh] = useState(0);    // for testing, need to revert to OG later
-  //const [isModalOpen, setIsModalOpen] = useState(false);
   const history = useHistory();
 
   useEffect(() => {     // gets SpotInfo
@@ -64,10 +61,10 @@ export default function CheckReviews() {
 
   return (
     <div id = "crBody">
-      <div className="checkreviews-header">  {/*Displays reviews and a back button (Not sure if its working)*/}
+      <div className="vr-header">
         <h1>Reviews</h1>
         <button onClick={() => history.goBack()} className="page-button">
-          {"<-- "}Go Back{" "}
+          {"<-- "} Back
         </button>
       </div>
 
@@ -75,6 +72,15 @@ export default function CheckReviews() {
         <h2>{spot.spotName}</h2>
         <h3>{spot.spotAddress}</h3>
       </div>
+
+      <div id='add-rev'>
+        <button 
+          onClick={() => navigateToPage(`/createreview/${spotID}`)}
+          className="page-button">
+            Add a Review
+        </button>
+      </div>
+
       {error && (
         <div className="checkreviews-error-box">
           <p>{error.toString()}</p>

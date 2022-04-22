@@ -72,58 +72,37 @@ export default function CreateSpot() {
             e.preventDefault();
             const elements = e.target.elements;
             createSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
-            // console.log(e.target.elements.spotAddress.value);
-            // console.log(e.target.elements.username.value); // from elements property
-            // console.log(e.target.username.value); // or directly
           }}
         >
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b>Spot / Location Name: </b>
-            </big>{" "}
-          </label>
-          <input type="text" name="spotName" placeholder="NYU Makerspace" />
-          <br></br>
-          <br></br>
+          <div id="userInputs">
+            <label className="item-styling">
+              <h3>Spot / Location Name: </h3>
+            </label>
+            <input type="text" name="spotName" placeholder="NYU Makerspace" />
 
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b>Address: </b>
-            </big>{" "}
-          </label>
-          <input
-            type="text"
-            name="spotAddress"
-            placeholder="6 MetroTech Center"
-          />
-          <br></br>
-          <br></br>
+            <label className="item-styling">
+              <h3>Address: </h3>
+            </label>
+            <input
+              type="text"
+              name="spotAddress"
+              placeholder="6 MetroTech Center"
+            />
 
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b>Capacity: </b>
-            </big>{" "}
-          </label>
-          <input type="text" name="spotCapacity" placeholder="100" />
-          <br></br>
-          <br></br>
+            <label className="item-styling">
+            <h3>Capacity: </h3>
+            </label>
+            <input type="text" name="spotCapacity" placeholder="100" />
 
-          <label className="item-styling">
-            {" "}
-            <big>
-              <b>Image Link: </b>
-            </big>{" "}
-          </label>
-          <input
-            type="text"
-            name="spotImage"
-            placeholder="https://example.com/"
-          />
-          <br></br>
-          <br></br>
+            <label className="item-styling">
+              <h3>Image Link: </h3>
+            </label>
+            <input
+              type="text"
+              name="spotImage"
+              placeholder="https://example.com/imagelinkaddress.jpg"
+            />
+          </div>
 
           <input className="submit-button" type="submit" value="Submit" />
         </form>

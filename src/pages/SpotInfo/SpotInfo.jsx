@@ -111,8 +111,7 @@ export default function Rooms() {          // update function name
             onClick={() => navigateToPage(`/createreview/${spotID}`)}
             className="page-button"
           >
-            {" "}
-            Add a Review{" "}
+            Add a Review
           </button>
         </footer>
       </div>
@@ -122,7 +121,7 @@ export default function Rooms() {          // update function name
           onClick={() => navigateToPage(`/spot_review/read/${spotID}`)}
           className="page-button"
         >
-          Check Reviews Page -- Remove this button later
+          View Reviews
         </button>
 
         {decodedToken != null &&
@@ -144,8 +143,6 @@ export default function Rooms() {          // update function name
           Update Spot Factors
         </button>
 
-        {/* Button to DELETE SPOT -- does API have it delete reviews, factors, etc? */}
-        {/* Curr navigates to UpdateSpotFactors */}
         {decodedToken != null &&
         decodedToken.permissions.indexOf("admin:full-access") != -1 ? (
           <button

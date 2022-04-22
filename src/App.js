@@ -6,7 +6,6 @@ import SpotInfo from './pages/SpotInfo/SpotInfo';
 import UpdateSpotInfo from './pages/UpdateSpotInfo/UpdateSpotInfo';
 
 import './App.css';
-import CheckReviews from './pages/CheckReviews/CheckReviews';
 import CreateReview from './pages/CreateReview/CreateReview';
 import ViewReviews from './pages/ViewReviews/ViewReviews';
 import UpdateSpotFactors from './pages/UpdateSpotFactors/UpdateSpotFactors';
@@ -30,11 +29,6 @@ function App() {
 
             <Route exact={true} path={'/spots/:spotID'}>
               <SpotInfo />
-            </Route>
-
-
-            <Route exact={true} path={'/CheckReviews'}>
-              <CheckReviews />
             </Route>
 
             <Route exact={true} path={'/spot_review/read/:spotID'}>

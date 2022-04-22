@@ -24,5 +24,13 @@ input[type=text], select {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
-  }
+  background-color: #45a049;
+}
+
+.item-styling > h3 {
+  padding-top: 3%;
+}
+
+#userInputs{
+  padding-bottom: 3%;
+}
