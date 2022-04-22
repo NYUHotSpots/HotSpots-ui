@@ -5,7 +5,9 @@ import axios from "axios";
 
 import "./updatespotinfo.css";
 
-export default function CreateSpot() {
+import { useParams } from "react-router";
+
+export default function CreateSpot() {        // Update function name
   const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
@@ -15,12 +17,14 @@ export default function CreateSpot() {
   //   history.push(path);
   // }
 
-  const createSpot = (spotName, spotImage, spotAddress, spotCapacity) => {
-    console.log("In createSpot function: ", spotName, spotImage, spotAddress, spotCapacity);
+  const { spotID } = useParams();
+
+  const updateSpot = (spotName, spotImage, spotAddress, spotCapacity) => {
+    console.log("In updateSpot function: ", spotName, spotImage, spotAddress, spotCapacity);           // delete
     const sendRequest = async (spotName, spotImage, spotAddress, spotCapacity) => {
       try {
         const accessToken = await getAccessTokenSilently();
-        console.log(accessToken);
+        console.log(accessToken);          // delete 
 
         const body = {
           spotName: spotName,
@@ -38,13 +42,18 @@ export default function CreateSpot() {
         };
 
         const response = await axios.post(
-          `${apiServerUrl}/spots/create`,
+          `${apiServerUrl}/spots/update/${spotID}`,
           body,
           config
         );
 
         const { data } = response;
-        console.log(data);
+        console.log(data);      // delete the data response
+
+        if(response.status === 200){
+          history.push('/submissionsuccess')
+        }
+        
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
       }
@@ -58,24 +67,22 @@ export default function CreateSpot() {
       <div className="rooms-header">
         <h1>Update Spot</h1>
         <button onClick={() => history.goBack()} className="page-button">
-          {"<-- "}Go Back{" "}
+          {"<-- "}Go Back
         </button>
       </div>
 
       <div className="instructions">
           <h3 className="instr-subheader">Instructions:</h3>
           <p>All input boxes must be filled out.</p>
-          <p>If there is a category that you do not want to change, fill the input box with the original content. 
-          </p>
+          <p>If there is a category that you do not want to change, fill the input box with the original content.</p>
       </div>
-
 
       <div className="contents">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             const elements = e.target.elements;
-            createSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
+            updateSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
           }}
         >
           <label className="input-sections">
@@ -105,8 +112,6 @@ export default function CreateSpot() {
             name="spotImage"
             placeholder="https://example.com/"
           />
-
-
 
           {/* edit CSS to input padding above button */}
           <input className="submit-button" type="submit" value="Submit Changes" />

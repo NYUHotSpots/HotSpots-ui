@@ -10,7 +10,7 @@ import "./spotinfo.css";
 import { useParams } from "react-router";
 import { useJwt } from "react-jwt";
 
-export default function Rooms() {
+export default function Rooms() {          // update function name
   const [spot, setSpot] = useState([]);
 
   const [setError] = useState(undefined);
@@ -26,19 +26,19 @@ export default function Rooms() {
   const deleteSpot = async () => {
     try {
       const accessToken = await getAccessTokenSilently();
-      console.log(accessToken);
+      console.log(accessToken);       // Delete for later
       const config = {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-      console.log(spotID);
+      console.log(spotID);    //Delete for later
       const response = await axios.delete(
         `${apiServerUrl}/spots/delete/${spotID}`,
         config
       );
       const { data } = response;
-      console.log(data);
+      console.log(data);          // Delete for later
 
       if (response.status === 200) {
         history.push("/");
@@ -128,7 +128,7 @@ export default function Rooms() {
         {decodedToken != null &&
         decodedToken.permissions.indexOf("admin:full-access") != -1 ? (
           <button
-            onClick={() => history.push("/updatespotinfo/")}
+            onClick={() => history.push(`/updatespotinfo/${spotID}`)}
             className="page-button"
             id="adminOnly"
           >

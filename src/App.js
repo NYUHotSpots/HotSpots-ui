@@ -50,7 +50,7 @@ function App() {
             </Route> */}
             <ProtectedRoute path="/createspot" component={CreateSpot} />
 
-            <Route exact={true} path={'/updatespotinfo'}>
+            <Route exact={true} path={'/updatespotinfo/:spotID'}>
               <UpdateSpotInfo />
             </Route>
 
