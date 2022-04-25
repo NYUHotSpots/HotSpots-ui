@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component snapshots 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="content"
+  >
+    <body>
+      <div
+        className="home_header"
+      >
+             
+        <h1>
+          HotSpots
+        </h1>
+        <button
+          className="page-button"
+          onClick={[Function]}
+        >
+          Log In / Sign Up
+        </button>
+      </div>
+      <div
+        className="intro"
+      >
+        <p
+          className="quote"
+        >
+          "Crowdsourcing study spaces for students by students"
+        </p>
+        <p
+          className="dev-names"
+        >
+          Tiffany Chan, Kevin Chen, Kevin Iza, Kathy Pan
+        </p>
+      </div>
+      <div
+        className="grid-container"
+      >
+        <div
+          className="rooms-empty"
+        >
+          <p>
+            Sorry there are no Locations right now... Come back later 
+          </p>
+        </div>
+      </div>
+    </body>
+  </div>
+</div>
+`;
