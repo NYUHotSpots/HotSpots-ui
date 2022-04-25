@@ -3,6 +3,7 @@ name: HotSpots UI push on non-main
 on:
   push:
     branches:
+      - '**'      # matches every branch
       - '!main'   # excludes main
 
 jobs:
