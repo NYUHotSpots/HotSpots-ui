@@ -1,0 +1,28 @@
+name: HotSpots UI push on main
+
+on:
+  push:
+    branches:
+      - '!main'   # excludes main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Install and Build 🔧
+        env:
+          REACT_APP_AUTH0_DOMAIN: ${{ secrets.REACT_APP_AUTH0_DOMAIN }}
+          REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}
+          REACT_APP_AUTH0_AUDIENCE: ${{ secrets.REACT_APP_AUTH0_AUDIENCE }}
+          REACT_APP_API_SERVER_URL: ${{ secrets.REACT_APP_API_SERVER_URL }}
+        run: |
+          npm ci
+          npm run build
+
+      - name: Run Jest Tests
+        run: npm test
