@@ -1,4 +1,4 @@
-name: HotSpots UI push on main
+name: HotSpots UI push on non-main
 
 on:
   push:
