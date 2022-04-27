@@ -79,3 +79,17 @@ The page will reload when you make changes.
 - [Auth0](https://auth0.com/docs/) (for login/signup system)
 - Netlify (for cloud deployment)
 - Github Pages (for cloud deployment, **primary**)
+
+
+## Testing
+```
+npm run test -- -u
+```
+
+- Generate new snapshots
+
+```
+npm run test
+```
+
+- Regular tests

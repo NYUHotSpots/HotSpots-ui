@@ -1,12 +1,13 @@
-name: HotSpots UI push on main
+name: HotSpots UI push on non-main
 
 on:
   push:
     branches:
-      - main
+      - '**'      # matches every branch
+      - '!main'   # excludes main
 
 jobs:
-  build-and-deploy:
+  run-tests:
     runs-on: ubuntu-latest
     env:
       CI: false
@@ -26,9 +27,3 @@ jobs:
 
       - name: Run Jest Tests
         run: npm test
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.3
-        with:
-          branch: gh-pages
-          folder: build
