@@ -64,6 +64,10 @@
   justify-content: space-between;
 }
 
+#spotinfo > h3{
+  font-weight: normal;
+}
+
 @media (max-width: 600px){
   .vr-header > h1{
     font-size: 1.5em;
