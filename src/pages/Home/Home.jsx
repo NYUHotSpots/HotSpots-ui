@@ -84,6 +84,15 @@ export default function Home() {
         </p>
       </div>
 
+      <div className="button-container">
+            <button
+              onClick={() => navigateToPage("/createspot")}
+              className="page-button"
+            >
+              Add New Spot
+            </button>
+      </div>
+
       {decodedToken != null && decodedToken.permissions.indexOf("admin:full-access") != -1 ? (
         <>
           <div className="button-container">
