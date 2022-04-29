@@ -63,3 +63,13 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media (max-width: 600px){
+  .vr-header > h1{
+    font-size: 1.5em;
+  }
+
+  #spotinfo > h2, #spotinfo > h3{
+    font-size: 1em;
+  }
+}

@@ -39,8 +39,6 @@ export default function CreateReview() {
         .then((response) => {
           console.log(response.data);
           setSpotFactorTypes(response.data);
-          // console.log(typeof response.data)
-          // console.log(spotFactorTypes.keys());
         })
         .catch((error) => {
           console.log("Error caught", error);
@@ -168,7 +166,7 @@ export default function CreateReview() {
                                 id={factorType + tupleOption[1]}
                                 name={factorType}
                                 value={tupleOption[1]}
-                                checked
+                                //checked
                               ></input>
                               <label for={factorType + tupleOption[1]}>
                                 {tupleOption[0]}
