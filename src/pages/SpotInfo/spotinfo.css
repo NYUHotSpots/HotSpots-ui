@@ -84,3 +84,27 @@ footer{
   background-color: red;
   color: white;
 }
+
+@media (max-width: 600px){
+  #title > h1{
+    font-size: 1.5em;
+  }
+
+  #title > p{
+    font-size: 1em;
+  }
+
+  #outline{
+    display: block;
+  }
+
+  #data, #visual{
+    width: 100%;
+  }
+
+  #data{
+    padding-top: 4%;
+    margin: auto;
+    font-size: .8em;
+  }
+}
