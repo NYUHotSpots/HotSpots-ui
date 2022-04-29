@@ -37,16 +37,6 @@ exports[`App Component App snapshots 1`] = `
         </p>
       </div>
       <div
-        className="button-container"
-      >
-        <button
-          className="page-button"
-          onClick={[Function]}
-        >
-          Add New Spot
-        </button>
-      </div>
-      <div
         className="grid-container"
       >
         <div
