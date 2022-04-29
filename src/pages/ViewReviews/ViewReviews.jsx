@@ -27,8 +27,6 @@ export default function CheckReviews() {
       axios
         .get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
-          console.log("SpotInfo:");
-          console.log(response.data);
           setSpot(response.data);
           // setLoading(false);
         })
@@ -87,7 +85,7 @@ export default function CheckReviews() {
         </div>
       )}
 
-      <div id="reviewsList">  {/*Gets the reviews from the demo23 (need to change) also handles when no reviews are found*/}
+      <div id="reviewsList">
         {reviews ? reviews.map((review) => (
           console.log(review.reviewText),
           <ReviewItem

@@ -13,18 +13,12 @@ export default function CreateSpot() {        // Update function name
   const { getAccessTokenSilently } = useAuth0();
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
-  // function navigateToPage(path) {
-  //   history.push(path);
-  // }
-
   const { spotID } = useParams();
 
   const updateSpot = (spotName, spotImage, spotAddress, spotCapacity) => {
-    console.log("In updateSpot function: ", spotName, spotImage, spotAddress, spotCapacity);           // delete
     const sendRequest = async (spotName, spotImage, spotAddress, spotCapacity) => {
       try {
-        const accessToken = await getAccessTokenSilently();
-        console.log(accessToken);          // delete 
+        const accessToken = await getAccessTokenSilently(); 
 
         const body = {
           spotName: spotName,
@@ -46,9 +40,6 @@ export default function CreateSpot() {        // Update function name
           new URLSearchParams(body),
           config
         );
-
-        const { data } = response;
-        console.log(data);      // delete the data response
 
         if(response.status === 200){
           history.push('/submissionsuccess')
