@@ -11,25 +11,30 @@ export default function CreateSpot() {
 
   const { getAccessTokenSilently } = useAuth0();
   const [error, setError] = useState(false);
+  const [selectedFile, setSelectedFile] = useState();
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
-  const createSpot = (spotName, spotImage, spotAddress, spotCapacity) => {
-    console.log("In createSpot function: ", spotName, spotImage, spotAddress, spotCapacity);
-    const sendRequest = async (spotName, spotImage, spotAddress, spotCapacity) => {
+  const changeImage = (e) => {
+    setSelectedFile(e.target.files[0]);
+  }
+
+  const createSpot = (spotName, spotImage, spotImageUpload, spotAddress, spotCapacity) => {
+    console.log("In createSpot function: ", spotName, spotImage, spotImageUpload.name, spotAddress, spotCapacity);
+    const sendRequest = async (spotName, spotImage, spotImageUpload, spotAddress, spotCapacity) => {
       try {
         const accessToken = await getAccessTokenSilently();
         console.log(accessToken);
 
-        const body = {
-          spotName: spotName,
-          spotImage: spotImage,
-          spotAddress: spotAddress,
-          spotCapacity: spotCapacity,
-        };
+        const body = new FormData();
+        body.append('spotName', spotName);
+        body.append('spotImage', spotImage);
+        body.append('spotImageUpload', spotImageUpload);
+        body.append('spotAddress', spotAddress);
+        body.append('spotCapacity', spotCapacity);
 
         const config = {
           headers: {
-            "content-type": "application/x-www-form-urlencoded",
+            "content-type": "multipart/form-data",
             "Authorization": `Bearer ${accessToken}`,
             // "accept": "application/json"
           }
@@ -37,7 +42,7 @@ export default function CreateSpot() {
 
         const response = await axios.post(
           `${apiServerUrl}/spots/create`,
-          new URLSearchParams(body),
+          body,
           config
         );
 
@@ -53,7 +58,7 @@ export default function CreateSpot() {
       }
     };
 
-    sendRequest(spotName, spotImage, spotAddress, spotCapacity);
+    sendRequest(spotName, spotImage, spotImageUpload, spotAddress, spotCapacity);
   };
 
   return (
@@ -71,7 +76,7 @@ export default function CreateSpot() {
           onSubmit={(e) => {
             e.preventDefault();
             const elements = e.target.elements;
-            createSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
+            createSpot(elements.spotName.value, elements.spotImage.value, selectedFile, elements.spotAddress.value, elements.spotCapacity.value);
           }}
         >
           <div id="userInputs">
@@ -95,12 +100,17 @@ export default function CreateSpot() {
             <input type="text" name="spotCapacity" placeholder="100" />
 
             <label className="item-styling">
-              <h3>Image Link: </h3>
+              <h3>Image Link/Upload: </h3>
             </label>
             <input
               type="text"
               name="spotImage"
               placeholder="https://example.com/imagelinkaddress.jpg"
+            />
+            <input 
+            type="file"
+            name="spotImageUpload"
+            onChange={changeImage}
             />
           </div>
 
