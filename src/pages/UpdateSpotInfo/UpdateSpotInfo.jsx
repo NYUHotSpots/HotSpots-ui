@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -11,21 +11,26 @@ export default function CreateSpot() {        // Update function name
   const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
+  const [selectedFile, setSelectedFile] = useState();
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
   const { spotID } = useParams();
+  const changeImage = (e) => {
+    setSelectedFile(e.target.files[0]);
+  }
 
-  const updateSpot = (spotName, spotImage, spotAddress, spotCapacity) => {
-    const sendRequest = async (spotName, spotImage, spotAddress, spotCapacity) => {
+  const updateSpot = (spotName, spotImage, spotImageUpload, spotAddress, spotCapacity) => {
+    const sendRequest = async (spotName, spotImage, spotImageUpload, spotAddress, spotCapacity) => {
       try {
         const accessToken = await getAccessTokenSilently(); 
 
-        const body = {
-          spotName: spotName,
-          spotImage: spotImage,
-          spotAddress: spotAddress,
-          spotCapacity: spotCapacity,
-        };
+        const body = new FormData();
+        body.append('spotName', spotName);
+        body.append('spotImage', spotImage);
+        body.append('spotImageUpload', spotImageUpload);
+        body.append('spotAddress', spotAddress);
+        body.append('spotCapacity', spotCapacity);
+        body.append('spot_id', spotID)
 
         const config = {
           headers: {
@@ -37,7 +42,7 @@ export default function CreateSpot() {        // Update function name
 
         const response = await axios.put(
           `${apiServerUrl}/spots/update/${spotID}`,
-          new URLSearchParams(body),
+          body,
           config
         );
 
@@ -50,7 +55,7 @@ export default function CreateSpot() {        // Update function name
       }
     };
 
-    sendRequest(spotName, spotImage, spotAddress, spotCapacity);
+    sendRequest(spotName, spotImage, spotImageUpload, spotAddress, spotCapacity);
   };
 
   return (
@@ -73,7 +78,7 @@ export default function CreateSpot() {        // Update function name
           onSubmit={(e) => {
             e.preventDefault();
             const elements = e.target.elements;
-            updateSpot(elements.spotName.value, elements.spotImage.value, elements.spotAddress.value, elements.spotCapacity.value);
+            updateSpot(elements.spotName.value, elements.spotImage.value, selectedFile, elements.spotAddress.value, elements.spotCapacity.value);
           }}
         >
           <div id="userInputs">
@@ -103,6 +108,11 @@ export default function CreateSpot() {        // Update function name
               type="text"
               name="spotImage"
               placeholder="https://example.com/"
+            />
+            <input 
+            type="file"
+            name="spotImageUpload"
+            onChange={changeImage}
             />
           </div>
           
