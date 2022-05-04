@@ -82,7 +82,7 @@ export default function CreateSpot() {
             <label className="item-styling">
               <h3>Spot / Location Name: </h3>
             </label>
-            <input type="text" name="spotName" placeholder="NYU Makerspace" />
+            <input type="text" name="spotName" placeholder="NYU Makerspace" required/>
 
             <label className="item-styling">
               <h3>Address: </h3>
@@ -91,12 +91,13 @@ export default function CreateSpot() {
               type="text"
               name="spotAddress"
               placeholder="6 MetroTech Center"
+              required
             />
 
             <label className="item-styling">
             <h3>Capacity: </h3>
             </label>
-            <input type="text" name="spotCapacity" placeholder="100" />
+            <input type="text" name="spotCapacity" placeholder="100" required/>
 
             <label className="item-styling">
               <h3>Image Link/Upload: </h3>
