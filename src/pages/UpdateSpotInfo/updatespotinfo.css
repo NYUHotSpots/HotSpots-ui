@@ -38,3 +38,12 @@ input[type=submit]:hover {
 .instr-subheader{
   color: red;
 }
+
+.contentUSI{
+  width: 100%;
+}
+
+.contentUSI > .rooms-header, .instructions{
+  padding-bottom: 4%;
+}
+

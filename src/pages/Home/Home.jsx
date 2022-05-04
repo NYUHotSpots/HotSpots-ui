@@ -13,8 +13,6 @@ export default function Home() {
   const [, setError] = useState(undefined);
   const [accessToken, setAccessToken] = useState("");
 
-  // const [refresh] = useState(undefined);
-
   const history = useHistory();
 
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
@@ -39,8 +37,6 @@ export default function Home() {
     };
 
     getToken();
-
-    // console.log(decodedToken.permissions.indexOf("admin:full-access"));
 
     axios
       .get(`${apiServerUrl}/spots/list`)      // Gets the spots from our api

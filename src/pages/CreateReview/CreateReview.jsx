@@ -31,7 +31,6 @@ export default function CreateReview() {
       axios
         .get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
-          console.log(response.data);  // Test value delete
 
           setSpotName(response.data.spotName);
           setSpotAddress(response.data.spotAddress);
@@ -78,7 +77,6 @@ export default function CreateReview() {
         );
 
         const { data } = response;
-        console.log(data);      // ?? Delete log
 
         if(response.status === 200){
           history.push('/submissionsuccess')
@@ -99,7 +97,7 @@ export default function CreateReview() {
         <h1>Write a Review</h1>
 
         <button onClick={() => history.goBack()} className="page-button">
-          {"<-- "}Go Back{" "}
+          {"<-- "}Go Back
         </button>
       </div>
       {error ? <Alert severity="error">{error}</Alert> : null }
@@ -137,7 +135,6 @@ export default function CreateReview() {
               name="rating"
               placeholder="5"
               onChange={(e) => {
-                console.log(Number(e.target.value));          // Do we need??
                 setReviewRating(Number(e.target.value));
               }}
             />

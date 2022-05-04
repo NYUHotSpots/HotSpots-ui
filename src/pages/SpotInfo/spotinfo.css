@@ -63,11 +63,6 @@
 
 footer{
   display: flex;
-  justify-content: space-between;
-}
-
-#testButtons{
-  display: flex;
   flex-direction: column;
   gap: 10px;
   padding-top: 10px;
@@ -83,4 +78,28 @@ footer{
   border: 1px solid #d30000;
   background-color: red;
   color: white;
+}
+
+@media (max-width: 600px){
+  #title > h1{
+    font-size: 1.5em;
+  }
+
+  #title > p{
+    font-size: 1em;
+  }
+
+  #outline{
+    display: block;
+  }
+
+  #data, #visual{
+    width: 100%;
+  }
+
+  #data{
+    padding-top: 4%;
+    margin: auto;
+    font-size: .8em;
+  }
 }

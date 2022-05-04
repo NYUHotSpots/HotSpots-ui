@@ -26,19 +26,16 @@ export default function Rooms() {          // update function name
   const deleteSpot = async () => {
     try {
       const accessToken = await getAccessTokenSilently();
-      console.log(accessToken);       // Delete for later
       const config = {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-      console.log(spotID);    //Delete for later
       const response = await axios.delete(
         `${apiServerUrl}/spots/delete/${spotID}`,
         config
       );
       const { data } = response;
-      console.log(data);          // Delete for later
 
       if (response.status === 200) {
         history.push("/");
@@ -113,11 +110,8 @@ export default function Rooms() {          // update function name
           >
             Add a Review
           </button>
-        </footer>
-      </div>
 
-      <div id="testButtons">
-        <button
+          <button
           onClick={() => navigateToPage(`/spot_review/read/${spotID}`)}
           className="page-button"
         >
@@ -153,6 +147,7 @@ export default function Rooms() {          // update function name
             Delete This Spot
           </button>
         ) : null}
+        </footer>
       </div>
     </div> //body div
   );

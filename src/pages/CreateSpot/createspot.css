@@ -34,3 +34,7 @@ input[type=submit]:hover {
 #userInputs{
   padding-bottom: 3%;
 }
+
+.contentCS{
+  width: 100%;
+}

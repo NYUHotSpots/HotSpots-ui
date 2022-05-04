@@ -39,8 +39,6 @@ export default function CreateReview() {
         .then((response) => {
           console.log(response.data);
           setSpotFactorTypes(response.data);
-          // console.log(typeof response.data)
-          // console.log(spotFactorTypes.keys());
         })
         .catch((error) => {
           console.log("Error caught", error);
@@ -96,13 +94,6 @@ export default function CreateReview() {
       }
     };
 
-    // console.log(
-    //   factorAvailability,
-    //   factorNoiseLevel,
-    //   factorTemperature,
-    //   factorAmbiance
-    // );
-
     sendRequest(
       factorAvailability,
       factorNoiseLevel,
@@ -111,19 +102,14 @@ export default function CreateReview() {
     );
   };
 
-  // const history = useHistory();
   return (
     <body>
       <div id="cr-header">
-        <div className="createreview-header">
-          {" "}
-          {/*Displays the title "Locations" and a back button */}
+        <div className="createreview-header"> 
           <h1>Update the Spot Factors</h1>
           <div className="">
-            {" "}
-            {/*Return Home button*/}
             <button onClick={() => history.goBack()} className="page-button">
-            {"<-- "}Go Back{" "}
+            {"<-- "}Go Backs
             </button>
           </div>
         </div>
@@ -135,13 +121,7 @@ export default function CreateReview() {
       <div className="createreview-input">
         <form
           onSubmit={(e) => {
-            e.preventDefault(); // prevents from submitting forms?? Do we need?
-            // console.log(
-            //   document.querySelector('input[name="availability"]:checked').value
-            // );
-            // console.log(e);
-            // const elements = e.target.elements;
-            // console.log(elements.hello);
+            e.preventDefault();
             updateSpotFactorReview(
               document.querySelector('input[name="availability"]:checked')
                 .value,
@@ -168,7 +148,7 @@ export default function CreateReview() {
                                 id={factorType + tupleOption[1]}
                                 name={factorType}
                                 value={tupleOption[1]}
-                                checked
+                                //checked
                               ></input>
                               <label for={factorType + tupleOption[1]}>
                                 {tupleOption[0]}

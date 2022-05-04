@@ -47,7 +47,6 @@ export default function CreateSpot() {
         );
 
         const { data } = response;
-        console.log(data);
         if (response.status === 200) {
           history.push('/submissionsuccess')
         }
@@ -62,7 +61,7 @@ export default function CreateSpot() {
   };
 
   return (
-    <div className="content">
+    <div className="contentCS">
       <div className="rooms-header">
         <h1>Add a Spot</h1>
         <button onClick={() => history.push("/")} className="page-button">
