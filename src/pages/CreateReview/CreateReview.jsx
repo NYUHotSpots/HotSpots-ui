@@ -97,7 +97,7 @@ export default function CreateReview() {
         <h1>Write a Review</h1>
 
         <button onClick={() => history.goBack()} className="page-button">
-          {"<-- "}Go Back
+          {"<-- "} Back
         </button>
       </div>
       {error ? <Alert severity="error">{error}</Alert> : null }

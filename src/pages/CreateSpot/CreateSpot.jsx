@@ -65,7 +65,7 @@ export default function CreateSpot() {
       <div className="rooms-header">
         <h1>Add a Spot</h1>
         <button onClick={() => history.push("/")} className="page-button">
-          {"<-- "}Go Back Home
+          {"<-- "} Back
         </button>
       </div>
       

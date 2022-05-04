@@ -93,7 +93,7 @@ export default function SpotItem({name, image, address, capacity, availability, 
             className="button"
             id="h_button"
             >
-            {"<-- "}Go Back Home
+            {"<-- "} Back
           </button>
         </div>
       </header>
