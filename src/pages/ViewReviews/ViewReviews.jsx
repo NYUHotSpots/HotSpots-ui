@@ -17,7 +17,7 @@ export default function CheckReviews() {
   const { spotID } = useParams();
 
   const [reviews, setReviews] = useState(undefined);
-  const [error, setError] = useState(undefined);
+  const [error, setError] = useState(false);
   const apiServerUrl = process.env.REACT_APP_API_SERVER_URL;
 
   const history = useHistory();
@@ -98,20 +98,11 @@ export default function CheckReviews() {
 
         )) : (
           <div className="checkreviews-empty">
-            <p>Sorry there are no reviews right now... Come back later </p>
+            <p>Sorry there are no reviews right now...</p>
           </div>
         )}
       </div>
-      
-      <div className="crFooter">     {/*Return Home button*/}
-        <button 
-        onClick={() => navigateToPage(`/spots/${spot["_id"]["$oid"]}`)}
-        className="page-button"
-        >
-          {"<--"}  Back
-        </button> 
-      </div>
 
-    </div> /* END DIV */
+    </div>
   )
 }
