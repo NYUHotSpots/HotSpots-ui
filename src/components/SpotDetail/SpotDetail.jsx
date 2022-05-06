@@ -112,32 +112,6 @@ export default function SpotItem({name, image, address, capacity, availability, 
           </ul>
         </div>
       </div>
-
-      {/*
-        Capacity
-
-        factorAvailability": {
-          "factorDate": "2022-03-03",
-          "factorValue": 0,
-          "factorNumOfInputs": 0
-
-        factorNoiseLevel": {
-        "factorDate": "2022-03-03",
-        "factorValue": 0,
-        "factorNumOfInputs": 0
-
-      "factorTemperature": {
-        "factorDate": "2022-03-03",
-        "factorValue": 0,
-        "factorNumOfInputs": 0
-
-      "factorAmbiance": {
-        "factorDate": "2022-03-03",
-        "factorValue": 0,
-        "factorNumOfInputs": 0
-      
-        Reviews
-      */}
     </div>
   );
 }
