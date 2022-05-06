@@ -29,7 +29,6 @@ export default function Home() {
     const getToken = async () => {
       try {
         const accessToken = await getAccessTokenSilently();
-        console.log(accessToken);
         setAccessToken(accessToken);
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
@@ -117,6 +116,6 @@ export default function Home() {
         )}
       </div>
 
-    </body>   // END
+    </body> 
   );
 }

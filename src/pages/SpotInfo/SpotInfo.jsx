@@ -55,7 +55,6 @@ export default function Rooms() {          // update function name
     const getToken = async () => {
       try {
         const accessToken = await getAccessTokenSilently();
-        console.log(accessToken);
         setAccessToken(accessToken);
       } catch (e) {
         console.log(JSON.stringify(e.message, null, 2));
@@ -68,7 +67,6 @@ export default function Rooms() {          // update function name
       axios
         .get(`${apiServerUrl}/spots/${spotID}`)
         .then((response) => {
-          console.log(response.data);
           setSpot(response.data);
           setLoading(false);
         })

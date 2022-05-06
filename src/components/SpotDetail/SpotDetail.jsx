@@ -8,7 +8,6 @@ export default function SpotItem({name, image, address, capacity, availability, 
   const history = useHistory();
 
   // For availability
-  console.log(availability);
   if(availability <= 1){
     availability = "At Capacity";
   }
