@@ -11,7 +11,6 @@ exports[`App Component App snapshots 1`] = `
       <div
         className="home_header"
       >
-             
         <h1>
           HotSpots
         </h1>
