@@ -10,7 +10,7 @@ import "./spotinfo.css";
 import { useParams } from "react-router";
 import { useJwt } from "react-jwt";
 
-export default function Rooms() {          // update function name
+export default function Rooms() {
   const [spot, setSpot] = useState([]);
 
   const [setError] = useState(undefined);
@@ -78,9 +78,9 @@ export default function Rooms() {          // update function name
 
     getSpotDetails();
   }, [setError, spotID]);
-
-  if (isLoading) {
-    // A way to wait for the response from axios before rendering the page
+  
+  // Wait for response from axios before rendering the page
+  if (isLoading) {  
     return <div></div>; // returns an empty div
   }
 
@@ -147,6 +147,6 @@ export default function Rooms() {          // update function name
         ) : null}
         </footer>
       </div>
-    </div> //body div
+    </div>
   );
 }

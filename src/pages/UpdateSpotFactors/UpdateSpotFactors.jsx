@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-//import React, { useState } from "react"; // for debugging, return to OG later
-import React from "react"; // for debugging, return to OG later
-import axios from "axios"; // for debugging, uncomment later
+import React from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
-//import axios from "axios";
 import { useParams } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
 

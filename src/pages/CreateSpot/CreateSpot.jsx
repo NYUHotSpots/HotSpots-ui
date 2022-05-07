@@ -36,7 +36,6 @@ export default function CreateSpot() {
           headers: {
             "content-type": "multipart/form-data",
             "Authorization": `Bearer ${accessToken}`,
-            // "accept": "application/json"
           }
         };
 

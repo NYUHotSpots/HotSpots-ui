@@ -53,7 +53,7 @@ export default function Home() {
 
   return (
     <body>
-      <div className="home_header">     {/*Displays the title "Locations" and a back button */}
+      <div className="home_header">
         <h1>HotSpots</h1>
 
         {isAuthenticated ? (

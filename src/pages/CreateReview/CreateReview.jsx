@@ -1,6 +1,4 @@
-//import React, {useEffect, useState} from 'react';
-import React, { useEffect, useState } from "react"; // html For debugging, return to OG later
-//import axios from 'axios';    // htmlFor debugging, uncomment later
+import React, { useEffect, useState } from "react";
 import Alert from '@mui/material/Alert';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -64,9 +62,7 @@ export default function CreateReview() {
 
         const config = {
           headers: {
-            // "content-type": "application/x-www-form-urlencoded",
             Authorization: `Bearer ${accessToken}`,
-            // "accept": "application/json"
           },
         };
 
@@ -93,7 +89,7 @@ export default function CreateReview() {
 
   return (
     <body>
-      <div className="createreview-header">       {/*Displays the title "Locations" and a back button */}
+      <div className="createreview-header">
         <h1>Write a Review</h1>
 
         <button onClick={() => history.goBack()} className="page-button">
@@ -142,17 +138,13 @@ export default function CreateReview() {
 
           <div id = "comments">
             <h2>Comments: </h2>
-            
             <textarea onChange={(e) => setReviewText(e.target.value)}></textarea>
-
           </div>
           
           <input className="submit-button" type="submit" value="Submit" />
           
         </form>
       </div>
-
-      
-    </body> //Content div
+    </body> // Content div
   );
 }

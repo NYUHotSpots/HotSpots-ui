@@ -34,9 +34,7 @@ export default function CreateSpot() {        // Update function name
 
         const config = {
           headers: {
-            // "content-type": "application/x-www-form-urlencoded",
             "Authorization": `Bearer ${accessToken}`,
-            // "accept": "application/json"
           }
         };
 
