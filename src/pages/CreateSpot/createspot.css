@@ -38,3 +38,11 @@ input[type=submit]:hover {
 .contentCS{
   width: 100%;
 }
+
+.cs-header {
+  padding-top: 4%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

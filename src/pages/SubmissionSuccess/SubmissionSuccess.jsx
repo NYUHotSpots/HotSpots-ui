@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 
 import "./submissionsuccess.css";
 
-export default function Home(){
+export default function SuccessPage(){
   const history = useHistory();
 
   function navigateToPage(path) {

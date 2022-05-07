@@ -7,7 +7,7 @@ import "./updatespotinfo.css";
 
 import { useParams } from "react-router";
 
-export default function CreateSpot() {        // Update function name
+export default function UpdateSpotinfo() {
   const history = useHistory();
 
   const { getAccessTokenSilently } = useAuth0();
@@ -58,7 +58,7 @@ export default function CreateSpot() {        // Update function name
 
   return (
     <div className="contentUSI">
-      <div className="rooms-header">
+      <div className="usi-header">
         <h1>Update Spot</h1>
         <button onClick={() => history.goBack()} className="page-button">
           {"<-- "} Back
@@ -83,7 +83,7 @@ export default function CreateSpot() {        // Update function name
             <label className="input-sections">
               <h3> Update Spot / Location Name: </h3>
             </label>
-            <input type="text" name="spotName" placeholder="NYU Makerspace" id="input-text"/>
+            <input type="text" name="spotName" placeholder="NYU Makerspace" id="input-text" required/>
 
             <label className="item-styling">
               <h3 id="input-subtitle">Update Address: </h3>
@@ -92,12 +92,13 @@ export default function CreateSpot() {        // Update function name
               type="text"
               name="spotAddress"
               placeholder="6 MetroTech Center"
+              required
             />
 
             <label className="item-styling">
               <h3 id="input-subtitle">Update Capacity: </h3>
             </label>
-            <input type="text" name="spotCapacity" placeholder="100" />
+            <input type="text" name="spotCapacity" placeholder="100" required/>
 
             <label className="item-styling">
               <h3 id="input-subtitle">Update Image Link: </h3>

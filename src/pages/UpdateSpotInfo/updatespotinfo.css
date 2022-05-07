@@ -43,7 +43,14 @@ input[type=submit]:hover {
   width: 100%;
 }
 
-.contentUSI > .rooms-header, .instructions{
+.contentUSI > .usi-header, .instructions{
   padding-bottom: 4%;
 }
 
+.usi-header {
+  padding-top: 4%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

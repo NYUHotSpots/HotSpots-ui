@@ -61,7 +61,7 @@ export default function CreateSpot() {
 
   return (
     <div className="contentCS">
-      <div className="rooms-header">
+      <div className="cs-header">
         <h1>Add a Spot</h1>
         <button onClick={() => history.push("/")} className="page-button">
           {"<-- "} Back

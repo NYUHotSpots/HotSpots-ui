@@ -10,7 +10,7 @@ import "./spotinfo.css";
 import { useParams } from "react-router";
 import { useJwt } from "react-jwt";
 
-export default function Rooms() {
+export default function SpotInfo() {
   const [spot, setSpot] = useState([]);
 
   const [setError] = useState(undefined);
